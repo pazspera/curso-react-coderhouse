@@ -32,6 +32,8 @@ export default function ItemCount({stock, initial}) {
         }
     }
 
+    
+
     return (
         <>
             <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', marginBottom: 2 }}>
