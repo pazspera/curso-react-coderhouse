@@ -1,0 +1,17 @@
+@media(min-width: 600px) {
+  .productCard {
+    max-width: 250px;
+  }
+}
+
+@media(min-width: 700px) {
+  .productCard {
+    max-width: 300px;
+  }
+}
+
+@media(min-width: 800px) {
+  .productCard {
+    max-width: 350px;
+  }
+}

@@ -1,3 +1,4 @@
+import "./Item.css";
 import {
 	Card,
 	CardActionArea,
@@ -10,7 +11,7 @@ import {
 export default function Item({product}) {
 	return (
 		<>
-			<Card sx={{ maxWidth: 250 }}>
+			<Card sx={{  height: '100%' }} className="productCard">
 				<CardActionArea>
 					<CardMedia
 						component="img"

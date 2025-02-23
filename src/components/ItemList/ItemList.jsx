@@ -67,9 +67,9 @@ export default function ItemList() {
 
   return (
     <>
-      <Grid container rowSpacing={2} columnSpacing={{ xs:0, sm:2, md: 3}}>
+      <Grid container rowSpacing={2} columnSpacing={{ xs:0, sm:0, md: 3}}>
         {products.map((card) => (
-          <Grid item xs={12} sm={6} md={3} xl={4} key={card.id}>
+          <Grid item xs={12} sm={6} md={4} lg={4} xl={3} key={card.id}>
             <Item product={card} />
           </Grid>
         ))}
