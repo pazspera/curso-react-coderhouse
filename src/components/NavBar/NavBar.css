@@ -1,16 +1,16 @@
 .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
+	display: flex;
+	justify-content: space-between;
+	align-items: end;
 }
 
 a.navbar-link {
-    color: white;
-    margin-left: 8px;
+	color: white;
+	margin-left: 8px;
 }
 
 a.navbar-link:hover {
-    color: darkslateblue;
-    text-decoration: none;
-    cursor: pointer;
+	color: darkslateblue;
+	text-decoration: none;
+	cursor: pointer;
 }
