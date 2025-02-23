@@ -1,6 +1,6 @@
 import { Typography, Container, Grid, Toolbar } from "@mui/material";
 import ItemCount from "../ItemCount/ItemCount";
-import Item from "../Item/Item";
+import ItemList from "../ItemList/ItemList";
 
 export default function ItemListContainer({ greeting }) {
 	const onAdd = (totalItems) => {
@@ -34,7 +34,7 @@ export default function ItemListContainer({ greeting }) {
 					</Grid>
 				</Grid>
 
-				<Item />
+        <ItemList/>
 			</Container>
 		</>
 	);
