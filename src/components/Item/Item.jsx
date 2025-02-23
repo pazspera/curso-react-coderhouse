@@ -1,7 +1,9 @@
 import "./Item.css";
 import {
+  Button,
 	Card,
 	CardActionArea,
+  CardActions,
 	CardContent,
 	CardMedia,
 	Typography,
@@ -29,6 +31,9 @@ export default function Item({product}) {
 						</Typography>
 					</CardContent>
 				</CardActionArea>
+        <CardActions>
+          <Button size="small" variant="contained">Ver más</Button>
+        </CardActions>
 			</Card>
 		</>
 	);
