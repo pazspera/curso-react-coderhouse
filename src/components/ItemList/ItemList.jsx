@@ -1,6 +1,6 @@
 import Item from "../Item/Item";
 import { useEffect , useState} from "react";
-import {Container} from "@mui/material";
+import { Grid } from "@mui/material";
 
 
 export default function ItemList() {
@@ -19,9 +19,9 @@ export default function ItemList() {
     },
     {
       id: 3,
-      title: "The Red Cathedral",
-      pictureUrl: "/img/red-cathedral.jpg",
-      price: 60000
+      title: "Aventureros al tren Europa",
+      pictureUrl: "/img/aventureros-tren-europa.jpg",
+      price: 100000
     },
     {
       id: 4,
@@ -67,11 +67,13 @@ export default function ItemList() {
 
   return (
     <>
-      <Container>
+      <Grid container rowSpacing={2} columnSpacing={{ xs:0, sm:2, md: 3}}>
         {products.map((card) => (
-          <Item product={card} key={card.id}/>
+          <Grid item xs={12} sm={6} md={3} xl={4} key={card.id}>
+            <Item product={card} />
+          </Grid>
         ))}
-      </Container>
+      </Grid>
     </>
   )
-}
+}  

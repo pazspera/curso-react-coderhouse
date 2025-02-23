@@ -25,14 +25,7 @@ export default function ItemListContainer({ greeting }) {
 
 				<ItemCount stock={4} initial={1} onAdd={onAdd} />
 
-				<Grid container spacing={2}>
-					<Grid item xs={12} md={6} lg={4}>
-						Item 1
-					</Grid>
-					<Grid item xs={12} md={6} lg={4}>
-						Item 2
-					</Grid>
-				</Grid>
+
 
         <ItemList/>
 			</Container>
