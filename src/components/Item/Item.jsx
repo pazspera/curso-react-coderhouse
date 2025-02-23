@@ -20,6 +20,12 @@ export default function Item({product}) {
 						heigth="150"
 						image={product.pictureUrl}
 						alt={product.title}
+            srcSet={
+              `${product.pictureUrl.replace(".jpg", "-small.jpg")} 480w,
+              ${product.pictureUrl.replace(".jpg", "-medium.jpg")} 768w,
+              ${product.pictureUrl.replace(".jpg", "-large.jpg")} 1280w,
+              `}
+            sizes="(max-width: 600px) 480px, (max-width: 960px) 768px, 1280px"
 					/>
 
 					<CardContent>
