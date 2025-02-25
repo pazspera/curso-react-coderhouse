@@ -69,7 +69,7 @@ export default function ItemList() {
     <>
       <Grid container rowSpacing={2} columnSpacing={{ xs:0, sm:0, md: 3}}>
         {products.map((card) => (
-          <Grid item xs={12} sm={6} md={4} lg={2} xl={2} key={card.id}>
+          <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={card.id}>
             <Item product={card} />
           </Grid>
         ))}
