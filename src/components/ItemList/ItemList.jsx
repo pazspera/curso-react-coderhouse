@@ -1,6 +1,7 @@
 import Item from "../Item/Item";
 import { useEffect , useState} from "react";
 import { Grid } from "@mui/material";
+import { formatPrice } from "../../utils/utils"
 
 
 export default function ItemList() {
@@ -33,13 +34,7 @@ export default function ItemList() {
 
   const [products, setProducts] = useState([]);
 
-  const formatPrice = (price) => {
-    const formattedPrice = new Intl.NumberFormat("es-AR", {
-      style: "currency",
-      currency: "ARS"
-    }).format(price);
-    return formattedPrice;
-  }
+  
 
   useEffect(() => {
     const fetchCards = new Promise((resolve, reject) => {
