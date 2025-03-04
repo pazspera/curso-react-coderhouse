@@ -11,7 +11,7 @@ function App() {
 	return (
 		<>
 			<NavBar />
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <ItemListContainer greeting={greeting} />
         <ItemDetailContainer/>
       </Container>

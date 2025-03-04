@@ -16,7 +16,7 @@ export default function ItemListContainer({ greeting }) {
 					minHeight: "auto",
 					width: "100%",
 				}}
-				maxWidth="lg"
+				maxWidth="xl"
 			>
 				{/* Fix para el fixed navbar, empuja contenido hacia abajo */}
 				<Toolbar />
