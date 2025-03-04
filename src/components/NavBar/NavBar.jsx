@@ -74,7 +74,7 @@ export default function NavBar() {
 	return (
 		<>
 			<AppBar>
-				<Container>{isMobile ? <MobileNav /> : <DesktopNav />}</Container>
+				<Container maxWidth="xl">{isMobile ? <MobileNav /> : <DesktopNav />}</Container>
 			</AppBar>
 		</>
 	);

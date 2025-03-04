@@ -25,8 +25,6 @@ export default function ItemListContainer({ greeting }) {
 
 				<ItemCount stock={4} initial={1} onAdd={onAdd} />
 
-
-
         <ItemList/>
 			</Container>
 		</>

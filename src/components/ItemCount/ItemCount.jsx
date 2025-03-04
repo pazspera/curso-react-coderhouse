@@ -1,7 +1,7 @@
 import { Button, TextField, Box, Input } from "@mui/material";
 import { useState, useEffect } from "react";
 
-export default function ItemCount({ stock, initial }) {
+export default function ItemCount({ stock, initial = 1 }) {
 	const [itemCount, setItemCount] = useState(Number(initial));
 
 	const addItem = () => {
@@ -35,7 +35,7 @@ export default function ItemCount({ stock, initial }) {
 	return (
 		<>
 			<Box
-				sx={{ display: "flex", gap: 2, alignItems: "center", marginBottom: 2 }}
+				sx={{ display: "flex", gap: 2, alignItems: "center", justifyContent: "center", marginBottom: 2 }}
 			>
 				<Button
 					variant="contained"
@@ -63,8 +63,7 @@ export default function ItemCount({ stock, initial }) {
 				Agregar al carrito
 			</Button>
 
-			<p>Stock: {stock}</p>
-			<p>itemCount: {itemCount}</p>
+			<p>{stock} artículos disponibles</p>
 		</>
 	);
 }

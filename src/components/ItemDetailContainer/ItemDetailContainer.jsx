@@ -20,7 +20,7 @@ export default function ItemDetailContainer() {
     },
   ]
 
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState(null);
 
   useEffect(()=> {
     const fetchProductById = new Promise((resolve, reject) => {
@@ -43,7 +43,6 @@ export default function ItemDetailContainer() {
 
   return  (
     <>
-      <p>Soy ItemDetailContainer</p>
       {product ? (
         <ItemDetail product={product}/>
       ) : (

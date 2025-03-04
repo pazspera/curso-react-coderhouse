@@ -2,6 +2,7 @@ import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import {Container} from "@mui/material"
 
 
 function App() {
@@ -10,8 +11,10 @@ function App() {
 	return (
 		<>
 			<NavBar />
-			<ItemListContainer greeting={greeting} />
-      <ItemDetailContainer/>
+      <Container maxWidth="lg">
+        <ItemListContainer greeting={greeting} />
+        <ItemDetailContainer/>
+      </Container>
 		</>
 	);
 }
