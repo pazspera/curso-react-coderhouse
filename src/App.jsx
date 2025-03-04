@@ -1,7 +1,8 @@
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
-import EjemploApi from "./components/EjemploApi/EjemploApi";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+
 
 function App() {
 	const greeting = "Hola Mundo";
@@ -10,7 +11,7 @@ function App() {
 		<>
 			<NavBar />
 			<ItemListContainer greeting={greeting} />
-      <EjemploApi/>
+      <ItemDetailContainer/>
 		</>
 	);
 }
