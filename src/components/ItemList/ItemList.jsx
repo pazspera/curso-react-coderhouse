@@ -34,8 +34,6 @@ export default function ItemList() {
 
   const [products, setProducts] = useState([]);
 
-  
-
   useEffect(() => {
     const fetchCards = new Promise((resolve, reject) => {
       setTimeout(() => {

@@ -1,10 +1,10 @@
 
-export default function ItemDetail() {
+export default function ItemDetail({product}) {
 
 
   return (
     <>
-      <p>Soy el item detail</p>
+      <p>{product.title}</p>
     </>
   )
 }

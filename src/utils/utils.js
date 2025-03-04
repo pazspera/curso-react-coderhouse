@@ -6,3 +6,7 @@ export const formatPrice = (price) => {
   }).format(price);
   return formattedPrice;
 }
+
+export const getProductById = (products, id) => {
+  return products.find((product) => product.id === id);
+}

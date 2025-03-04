@@ -55,7 +55,6 @@ export default function ItemCount({ stock, initial }) {
 				<Button
 					variant="contained"
 					onClick={removeItem}
-					disabled={itemCount <= 1}
 				>
 					-
 				</Button>
