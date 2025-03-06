@@ -37,22 +37,22 @@ export default function NavBar() {
 				>
 					<Box onClick={closeDrawer} onKeyDown={closeDrawer}>
 						<NavLink to="/">
-              <Typography variant="subtitle1" component="p">
+              <Typography variant="subtitle1" component="p" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
                 Dados & Dragones
               </Typography>
             </NavLink>
 						<List>
-							<NavLink to="/estrategia" className="navbar-link">
+							<NavLink to="/estrategia" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
                 <ListItemText primary="Estrategia"></ListItemText>
               </NavLink>
-              <NavLink to="/familiares" className="navbar-link">
+              <NavLink to="/familiares" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
 							  <ListItemText istItemText primary="Familiares"></ListItemText>
               </NavLink>
-							<NavLink to="/party" className="navbar-link">
+							<NavLink to="/party" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
                <ListItemText primary="Party"></ListItemText>
               </NavLink>
 						</List>
-            <NavLink to="/cart">
+            <NavLink to="/cart" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
               <Typography>Mi carrito</Typography>
             </NavLink>
 					</Box>
@@ -68,16 +68,16 @@ export default function NavBar() {
 		return (
 			<>
 				<Toolbar className="navbar-container">
-					<NavLink to="/">
+					<NavLink to="/" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
             <Typography variant="subtitle1" component="p">
               Dados & Dragones
             </Typography>
           </NavLink>
 					<Box sx={{ display: "flex", alignItems: "center" }}>
-						<NavLink to="/estrategia" className="navbar-link">Estrategia</NavLink>
-						<NavLink to="/familiares" className="navbar-link">Familiares</NavLink>
-						<NavLink to="/party" className="navbar-link">Party</NavLink>
-						<NavLink to="/cart">
+						<NavLink to="/estrategia" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>Estrategia</NavLink>
+						<NavLink to="/familiares" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>Familiares</NavLink>
+						<NavLink to="/party" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>Party</NavLink>
+						<NavLink to="/cart" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
               <CartWidget />
             </NavLink>
 					</Box>
