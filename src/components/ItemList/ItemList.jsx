@@ -1,41 +1,14 @@
 import Item from "../Item/Item";
 import { useEffect , useState} from "react";
 import { Grid } from "@mui/material";
-import { formatPrice } from "../../utils/utils";
 import productsData from "../../assets/data/products.json";
 import { Link } from "react-router-dom"
 
-export default function ItemList() {
-
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const fetchProducts = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(productsData);
-      }, 2000);
-    }) 
-
-    fetchProducts
-      .then((cards) => {
-        console.log(cards);
-        // recorre cards y les agrega la propiedad de formattedPrice
-        const updatedCards = cards.map((card) => ({
-          ...card,
-          formattedPrice: formatPrice(card.price),
-        }))
-        setProducts(updatedCards);
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-
-  }, []);
-
+export default function ItemList({products}) {
 
   return (
     <>
-      <Grid container rowSpacing={2} columnSpacing={{ xs:0, sm:0, md: 3}}>
+      <Grid container rowSpacing={2} columnSpacing={{ xs:0, sm:0, md: 3}} justifyContent={'flex-start'}>
         {
           products.length > 0 ? (
             products.map((card) => (

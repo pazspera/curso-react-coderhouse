@@ -16,9 +16,9 @@ function App() {
         <Routes>
           <Route exact path="/" element={<ItemListContainer greeting={greeting} />}></Route>
           <Route exact path="/cart" element={<p>carrito</p>}></Route>
-          <Route exact path="/category/estrategia" element={<p>Página de Estrategia</p>} />
-          <Route exact path="/category/familiares" element={<p>Página de Familiares</p>} />
-          <Route exact path="/category/party" element={<p>Página de Party</p>} />
+          {/* <Route exact path="/category/estrategia" element={<ItemListContainer />} />
+          <Route exact path="/category/familiares" element={<ItemListContainer />} />
+          <Route exact path="/category/party" element={<ItemListContainer />} /> */}
           <Route exact path="/category/:categoryId" element={<ItemListContainer />}></Route>
           <Route exact path="/item/:id" element={<ItemDetailContainer />}></Route>
         </Routes>
