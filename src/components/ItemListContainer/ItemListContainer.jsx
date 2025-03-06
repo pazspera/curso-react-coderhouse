@@ -2,6 +2,7 @@ import { Typography, Container, Grid, Toolbar } from "@mui/material";
 import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList";
 
+
 export default function ItemListContainer({ greeting }) {
 	const onAdd = (totalItems) => {
 		console.log(`el usuario agregó ${totalItems} items`);

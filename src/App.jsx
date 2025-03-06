@@ -19,7 +19,8 @@ function App() {
           <Route exact path="/estrategia" element={<p>Página de Estrategia</p>} />
           <Route exact path="/familiares" element={<p>Página de Familiares</p>} />
           <Route exact path="/party" element={<p>Página de Party</p>} />
-          <Route exact path="/category/:id" element={<ItemDetail />}></Route>
+          <Route exact path="/category/:id" element={<ItemListContainer />}></Route>
+          <Route exact path="/item/:id" element={<ItemDetailContainer />}></Route>
         </Routes>
       </BrowserRouter>
       {/* <Container maxWidth="xl">
