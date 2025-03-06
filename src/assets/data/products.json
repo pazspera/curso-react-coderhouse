@@ -38,5 +38,15 @@
    "players_min": 3,
    "players_max": 4,
    "categories": ["Familiares", "Estrategia"]
- }
+ },
+ {
+  "id": 5,
+  "title": "Sushi Go Party!",
+  "pictureUrl": "/img/sushi-go-party.jpg",
+  "price": 95000,
+  "description": "Sushi Go Party es una mejora del ya sensacional Sushi Go. En una partida de Sushi Go Party los jugadores se sientan alrededor de la mesa y se reparte una mano de cartas a cada uno. Las cartas muestran diferentes tipos de sushi que puntuarán de diferentes modos al final del juego.",
+  "players_min": 2,
+  "players_max": 8,
+  "categories": ["Familiares", "Party"]
+}
 ]
