@@ -1,10 +1,11 @@
 import ItemCount from "../ItemCount/ItemCount";
-import { Grid, CardMedia, Typography } from "@mui/material";
+import { Grid, CardMedia, Button, Typography } from "@mui/material";
 import { formatPrice } from "../../utils/utils";
 import { Link } from "react-router-dom"
+import { useNavigateBack } from "../../hooks/useNavigateBack";
 
 export default function ItemDetail({product}) {
-
+  const navigateBack = useNavigateBack("/");
 
   return (
     <>
@@ -26,8 +27,9 @@ export default function ItemDetail({product}) {
           <Typography variant="h3" gutterBottom>{product.title}</Typography>
           <Typography variant="subtitle1" gutterBottom>{formatPrice(product.price)}</Typography>
           <ItemCount stock={5} />
-          <Typography variant="h6"><bold>Descripción:</bold></Typography>
+          <Typography variant="h6">Descripción:</Typography>
           <Typography variant="body1">{product.description}</Typography>
+          <Button variant="contained" onClick={navigateBack} sx={{marginTop: 4}}>Volver atrás</Button>
         </Grid>
       </Grid>
     </>
