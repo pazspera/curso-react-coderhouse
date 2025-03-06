@@ -42,13 +42,13 @@ export default function NavBar() {
               </Typography>
             </NavLink>
 						<List>
-							<NavLink to="/estrategia" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
+							<NavLink to="/category/estrategia" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
                 <ListItemText primary="Estrategia"></ListItemText>
               </NavLink>
-              <NavLink to="/familiares" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
+              <NavLink to="/category/familiares" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
 							  <ListItemText istItemText primary="Familiares"></ListItemText>
               </NavLink>
-							<NavLink to="/party" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
+							<NavLink to="/category/party" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
                <ListItemText primary="Party"></ListItemText>
               </NavLink>
 						</List>
@@ -74,9 +74,9 @@ export default function NavBar() {
             </Typography>
           </NavLink>
 					<Box sx={{ display: "flex", alignItems: "center" }}>
-						<NavLink to="/estrategia" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>Estrategia</NavLink>
-						<NavLink to="/familiares" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>Familiares</NavLink>
-						<NavLink to="/party" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>Party</NavLink>
+						<NavLink to="/category/estrategia" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>Estrategia</NavLink>
+						<NavLink to="/category/familiares" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>Familiares</NavLink>
+						<NavLink to="/category/party" className="navbar-link" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>Party</NavLink>
 						<NavLink to="/cart" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
               <CartWidget />
             </NavLink>
