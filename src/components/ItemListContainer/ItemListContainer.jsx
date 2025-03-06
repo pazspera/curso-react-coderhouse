@@ -1,4 +1,4 @@
-import { Typography, Container, Grid, Toolbar } from "@mui/material";
+import { Box, Typography, Container, Grid, Toolbar } from "@mui/material";
 import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
@@ -58,7 +58,14 @@ export default function ItemListContainer() {
 				{/* Fix para el fixed navbar, empuja contenido hacia abajo */}
 				<Toolbar />
 
-        <ItemList products={products}/>
+        <Box sx={{ 
+            display: "flex", 
+            flexWrap: "wrap", 
+            justifyContent: "flex-start",
+            width: "100%" 
+        }}>
+          <ItemList products={products}/>
+        </Box>
 			</Container>
 		</>
 	);
