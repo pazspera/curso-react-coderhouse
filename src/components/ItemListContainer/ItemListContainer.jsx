@@ -1,7 +1,8 @@
 import { Typography, Container, Grid, Toolbar } from "@mui/material";
 import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList";
-import { useParams, useEffect, useState } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 
 export default function ItemListContainer() {
@@ -12,7 +13,6 @@ export default function ItemListContainer() {
 		console.log(`el usuario agregó ${totalItems} items`);
 	};
 
-  
 
 	return (
 		<>

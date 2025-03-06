@@ -3,7 +3,7 @@ import { useEffect , useState} from "react";
 import { Grid } from "@mui/material";
 import { formatPrice } from "../../utils/utils";
 import productsData from "../../assets/data/products.json";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export default function ItemList() {
 
@@ -36,11 +36,17 @@ export default function ItemList() {
   return (
     <>
       <Grid container rowSpacing={2} columnSpacing={{ xs:0, sm:0, md: 3}}>
-        {products.map((card) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={card.id}>
-              <Item product={card} />
-          </Grid>
-        ))}
+        {
+          products.length > 0 ? (
+            products.map((card) => (
+              <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={card.id}>
+                  <Item product={card} />
+              </Grid>
+            ))
+          ) : (
+            <p>Cargando</p>
+          )
+        }
       </Grid>
     </>
   )
