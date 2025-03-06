@@ -1,0 +1,42 @@
+[
+  {
+  "id": 1,
+  "title": "Wingspan",
+  "pictureUrl": "/img/wingspan.jpg",
+  "price": 200000,
+  "description": "Wingspan es un juego de mesa competitivo y estratégico en el que los jugadores asumen el rol de observadores de aves y buscan atraer distintas especies a sus reservas naturales. A lo largo de la partida, gestionan recursos, colocan cartas de aves en diferentes hábitats (bosque, pradera y humedal) y activan habilidades especiales para obtener alimentos, poner huevos y robar nuevas cartas. Con un diseño visual impresionante y mecánicas equilibradas, Wingspan combina planificación, táctica y un toque de suerte, ofreciendo una experiencia inmersiva para amantes de los juegos de mesa y la naturaleza.",
+  "players_min": 1,
+  "players_max": 5,
+  "categories": ["Familiares", "Estrategia"]
+ },
+ {
+  "id": 2,
+  "title": "Dune: Imperium",
+  "pictureUrl": "/img/dune-imperium.jpg",
+  "price": 250000,
+  "description": "Arrakis. Dune. El Planeta del Desierto. Alza tu estandarte por encima del vasto yermo que se extiende ante ti. Ahora que las Grandes Casas del Landsraad reúnen a sus fuerzas y sus espías, ¿a quién influenciarás y a quién traicionarás? Un Emperador tiránico. Las inescrutables Bene Gesserit. La astuta Cofradía Espacial. Los feroces Fremen del Desierto Profundo. El poder del Imperio puede ser tuyo, pero la guerra no es la única forma de hacerse con él. Dune: Imperium combina la construcción de mazos y la asignación de trabajadores en un nuevo juego de estrategia perfectamente ambientado, donde el destino del Imperio depende de tus decisiones. ¿Buscarás aliados políticos o confiarás en la fuerza militar? ¿Supremacía económica o intrigas sutiles? ¿Un asiento en el consejo... o una hoja afilada? Las cartas están echadas. La elección es tuya. El Imperio espera.",
+  "players_min": 1,
+  "players_max": 4,
+  "categories": ["Estrategia"]
+ },
+ {
+  "id": 3,
+  "title": "Aventureros al tren Europa",
+  "pictureUrl": "/img/aventureros-tren-europa.jpg",
+  "price": 100000,
+  "description": "¡Aventureros al Tren! es un juego de mesa de aventuras en tren. Los jugadores acumulan cartas de ciertos tipos de vagones que les permiten conectar diferentes ciudades a lo largo y ancho del mapa de Estados Unidos. Mientras más largos son los recorridos, más puntos se ganan. Quienes consigan cumplir con sus Billetes de Destino conectando dos ciudades lejanas, y quien consiga construir la ruta ferroviaria continua más larga, ganarán puntos adicionales.",
+  "players_min": 2,
+  "players_max": 5,
+  "categories": ["Familiares"]
+ },
+ {
+   "id": 4,
+   "title": "Catán",
+   "pictureUrl": "/img/catan.jpg",
+   "price": 95000,
+   "description": "¡Bienvenido a Catan, el emocionante mundo de la colonización y el comercio! En este galardonado juego de mesa, te convertirás en un pionero en una isla rica en recursos, y tu misión es construir y expandir tus asentamientos mientras compites con otros colonos.",
+   "players_min": 3,
+   "players_max": 4,
+   "categories": ["Familiares", "Estrategia"]
+ }
+]

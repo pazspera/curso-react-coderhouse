@@ -3,7 +3,6 @@ import { useEffect , useState} from "react";
 import { Grid } from "@mui/material";
 import { formatPrice } from "../../utils/utils"
 
-
 export default function ItemList() {
   const cards = [
     {
