@@ -6,7 +6,6 @@ import {
 	Box,
 	Container,
 	IconButton,
-	Link,
 	List,
 	ListItem,
 	ListItemIcon,
@@ -17,6 +16,7 @@ import {
 	useMediaQuery,
 } from "@mui/material";
 import CartWidget from "../CartWidget/CartWidget";
+import { Link, NavLink } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 export default function NavBar() {
@@ -36,14 +36,25 @@ export default function NavBar() {
 					onOpen={openDrawer}
 				>
 					<Box onClick={closeDrawer} onKeyDown={closeDrawer}>
-						<Typography variant="subtitle1" component="p">
-							Dados & Dragones
-						</Typography>
+						<NavLink to="/">
+              <Typography variant="subtitle1" component="p">
+                Dados & Dragones
+              </Typography>
+            </NavLink>
 						<List>
-							<ListItemText primary="Estrategia"></ListItemText>
-							<ListItemText primary="Familiares"></ListItemText>
-							<ListItemText primary="Party"></ListItemText>
+							<NavLink to="/estrategia" className="navbar-link">
+                <ListItemText primary="Estrategia"></ListItemText>
+              </NavLink>
+              <NavLink to="/familiares" className="navbar-link">
+							  <ListItemText istItemText primary="Familiares"></ListItemText>
+              </NavLink>
+							<NavLink to="/party" className="navbar-link">
+               <ListItemText primary="Party"></ListItemText>
+              </NavLink>
 						</List>
+            <NavLink to="/cart">
+              <Typography>Mi carrito</Typography>
+            </NavLink>
 					</Box>
 				</SwipeableDrawer>
 				<IconButton onClick={openDrawer}>
@@ -57,14 +68,18 @@ export default function NavBar() {
 		return (
 			<>
 				<Toolbar className="navbar-container">
-					<Typography variant="subtitle1" component="p">
-						Dados & Dragones
-					</Typography>
+					<NavLink to="/">
+            <Typography variant="subtitle1" component="p">
+              Dados & Dragones
+            </Typography>
+          </NavLink>
 					<Box sx={{ display: "flex", alignItems: "center" }}>
-						<Link className="navbar-link">Estrategia</Link>
-						<Link className="navbar-link">Familiares</Link>
-						<Link className="navbar-link">Party</Link>
-						<CartWidget />
+						<NavLink to="/estrategia" className="navbar-link">Estrategia</NavLink>
+						<NavLink to="/familiares" className="navbar-link">Familiares</NavLink>
+						<NavLink to="/party" className="navbar-link">Party</NavLink>
+						<NavLink to="/cart">
+              <CartWidget />
+            </NavLink>
 					</Box>
 				</Toolbar>
 			</>

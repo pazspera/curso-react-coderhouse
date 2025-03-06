@@ -37,14 +37,14 @@ export default function ItemCount({ stock, initial = 1 }) {
 			<Box
 				sx={{ display: "flex", gap: 2, alignItems: "center", justifyContent: "center", marginBottom: 2 }}
 			>
-				<Button
+				
+        <Button
 					variant="contained"
-					onClick={addItem}
-					disabled={itemCount === stock}
+					onClick={removeItem}
 				>
-					+
+					-
 				</Button>
-
+        
 				<Input
 					value={itemCount}
 					sx={{ color: "white" }}
@@ -52,12 +52,16 @@ export default function ItemCount({ stock, initial = 1 }) {
 				/>
 
 				{console.log(stock)}
-				<Button
+
+        <Button
 					variant="contained"
-					onClick={removeItem}
+					onClick={addItem}
+					disabled={itemCount === stock}
 				>
-					-
+					+
 				</Button>
+
+				
 			</Box>
 			<Button variant="contained" onClick={() => onAdd(itemCount)}>
 				Agregar al carrito

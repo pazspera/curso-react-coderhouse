@@ -21,9 +21,7 @@ export default function ItemDetail({product}) {
               sizes="(max-width: 600px) 480px, (max-width: 960px) 768px, 1280px"
             />
         </Grid>
-        <Grid item xs={12} md={7} lg={6} sx={{display: 'flex', flexDirection: 'column', alignItems:'start', textAlign: 'start', paddingLeft: {
-          md: 5
-        } }}>
+        <Grid item xs={12} md={7} lg={6} sx={{display: 'flex', flexDirection: 'column', alignItems:'start', textAlign: 'start', paddingLeft: { md: 5 } }}>
           <Typography variant="h3" gutterBottom>{product.title}</Typography>
           <Typography variant="subtitle1" gutterBottom>{formatPrice(product.price)}</Typography>
           <ItemCount stock={5} />
