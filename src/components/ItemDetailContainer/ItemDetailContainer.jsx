@@ -2,10 +2,10 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import { useState, useEffect } from "react";
 import { getProductById } from "../../utils/utils";
 import products from "../../assets/data/products.json";
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function ItemDetailContainer() {
-  const {id} = useParams();
+  const { id } = useParams();
   const [product, setProduct] = useState(null);
 
   if(id) {
@@ -27,8 +27,6 @@ export default function ItemDetailContainer() {
       .catch((err) => {
         console.log(err);
       })
-
-
   }, [id])
 
   return  (
