@@ -43,10 +43,30 @@
   "id": 5,
   "title": "Sushi Go Party!",
   "pictureUrl": "/img/sushi-go-party.jpg",
-  "price": 95000,
+  "price": 47000,
   "description": "Sushi Go Party es una mejora del ya sensacional Sushi Go. En una partida de Sushi Go Party los jugadores se sientan alrededor de la mesa y se reparte una mano de cartas a cada uno. Las cartas muestran diferentes tipos de sushi que puntuarán de diferentes modos al final del juego.",
   "players_min": 2,
   "players_max": 8,
   "categories": ["familiares", "party"]
-}
+ },
+ {
+  "id": 6,
+  "title": "Dixit",
+  "pictureUrl": "/img/dixit.jpg",
+  "price": 77000,
+  "description": "Dixit es un juego de mesa para toda la familia donde el jugador principal debe usar la imaginación para sugerir un tema, palabras, frases o historias sobre su carta y los demás jugadores deben intentar engañar a otros jugadores con sus propias cartas. Pero  ojo, no es tan sencillo, si nadie o todos aciertan el jugador principal pierde y todos los contrincantes ganan.",
+  "players_min": 3,
+  "players_max": 8,
+  "categories": ["familiares", "party"]
+ },
+ {
+  "id": 7,
+  "title": "Skull",
+  "pictureUrl": "/img/skull.jpg",
+  "price": 30000,
+  "description": "Skull es un juego muy bonito y con un reglamento muy sencillo. Eso sí, para ganar una partida de Skull tendrás que marcarte muchos faroles. Está basado en el antiguo juego que se extendió como la pólvora entre los aventureros de la costa Oeste de Estados Unidos. Hace unos años fue redescubierto por unas bandas de moteros que lo llamaron Skull & Roses. Ahora se lanza al mercado en este colorido formato de calaveras originales y flores variadas, para hacer las delicias de aquellos que disfrutan de mentir.",
+  "players_min": 3,
+  "players_max": 6,
+  "categories": ["party"]
+ }
 ]
