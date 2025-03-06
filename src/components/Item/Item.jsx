@@ -43,7 +43,7 @@ export default function Item({product}) {
 					</CardContent>
 				</CardActionArea>
         <CardActions>
-          <Button size="small" variant="contained">Ver más</Button>
+          <Button size="small" variant="contained" component={Link} to={`/item/${product.id}`}>Ver más</Button>
         </CardActions>
 			</Card>
 		</>
