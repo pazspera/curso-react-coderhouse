@@ -23,10 +23,6 @@ function App() {
           <Route exact path="/item/:id" element={<ItemDetailContainer />}></Route>
         </Routes>
       </BrowserRouter>
-      {/* <Container maxWidth="xl">
-        <ItemListContainer greeting={greeting} />
-        <ItemDetailContainer/>
-      </Container> */}
 		</>
 	);
 }

@@ -8,13 +8,18 @@ import {
 	CardMedia,
 	Typography,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 
 
 export default function Item({product}) {
+  if(product) {
+    console.log(`product.id en Item: ${product.id}`)
+  }
+
 	return (
 		<>
 			<Card sx={{  height: '100%' }} className="productCard">
-				<CardActionArea>
+				<CardActionArea component={Link} to={`/item/${product.id}`}>
 					<CardMedia
 						component="img"
 						heigth="150"

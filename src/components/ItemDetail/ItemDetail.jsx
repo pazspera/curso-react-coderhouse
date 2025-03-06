@@ -1,6 +1,7 @@
 import ItemCount from "../ItemCount/ItemCount";
 import { Grid, CardMedia, Typography } from "@mui/material";
 import { formatPrice } from "../../utils/utils";
+import { Link } from "react-router-dom"
 
 export default function ItemDetail({product}) {
 

@@ -3,7 +3,7 @@ import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList";
 
 
-export default function ItemListContainer({ greeting }) {
+export default function ItemListContainer() {
 	const onAdd = (totalItems) => {
 		console.log(`el usuario agregó ${totalItems} items`);
 	};
@@ -21,10 +21,6 @@ export default function ItemListContainer({ greeting }) {
 			>
 				{/* Fix para el fixed navbar, empuja contenido hacia abajo */}
 				<Toolbar />
-
-				<Typography>{greeting.trim()}</Typography>
-
-				<ItemCount stock={4} initial={1} onAdd={onAdd} />
 
         <ItemList/>
 			</Container>
