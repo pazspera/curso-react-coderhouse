@@ -4,6 +4,8 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import {Container} from "@mui/material";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Listener from "./components/Event";
+import InputSinVocales from "./components/InputSinVocales";
 
 
 function App() {
@@ -16,11 +18,9 @@ function App() {
         <Routes>
           <Route exact path="/" element={<ItemListContainer greeting={greeting} />}></Route>
           <Route exact path="/cart" element={<p>carrito</p>}></Route>
-          {/* <Route exact path="/category/estrategia" element={<ItemListContainer />} />
-          <Route exact path="/category/familiares" element={<ItemListContainer />} />
-          <Route exact path="/category/party" element={<ItemListContainer />} /> */}
           <Route exact path="/category/:categoryId" element={<ItemListContainer />}></Route>
           <Route exact path="/item/:id" element={<ItemDetailContainer />}></Route>
+          <Route exact path="/events" element={<InputSinVocales />}></Route>
         </Routes>
       </BrowserRouter>
 		</>

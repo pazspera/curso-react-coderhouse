@@ -3,10 +3,12 @@ import { useState, useEffect } from "react";
 import { getProductById } from "../../utils/utils";
 import products from "../../assets/data/products.json";
 import { useParams } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 export default function ItemDetailContainer() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [loadingStatus, setLoadingStatus] = useState(true);
 
   if(id) {
     console.log(`id en ItemListContainer: ${id}`)
@@ -15,7 +17,8 @@ export default function ItemDetailContainer() {
   useEffect(()=> {
     const fetchProductById = new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(getProductById(products, Number(id)))
+        resolve(getProductById(products, Number(id)));
+        setLoadingStatus(false);
       }, 2000);
     });
 
@@ -34,7 +37,7 @@ export default function ItemDetailContainer() {
       {product ? (
         <ItemDetail product={product}/>
       ) : (
-        <p>Cargando</p>
+        <Loader loading={loadingStatus}/>
       )}
     </>
   )
