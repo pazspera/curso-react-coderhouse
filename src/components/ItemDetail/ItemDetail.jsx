@@ -26,7 +26,7 @@ export default function ItemDetail({product}) {
         <Grid item xs={12} md={7} lg={6} sx={{display: 'flex', flexDirection: 'column', alignItems:'start', textAlign: 'start', paddingLeft: { md: 5 } }}>
           <Typography variant="h3" gutterBottom>{product.title}</Typography>
           <Typography variant="subtitle1" gutterBottom>{formatPrice(product.price)}</Typography>
-          <ItemCount stock={5} />
+          <ItemCount stock={product.stock} />
           <Typography variant="h6">Descripción:</Typography>
           <Typography variant="body1">{product.description}</Typography>
           <Button variant="contained" onClick={navigateBack} sx={{marginTop: 4}}>Volver atrás</Button>
