@@ -3,9 +3,19 @@ import { Grid, CardMedia, Button, Typography } from "@mui/material";
 import { formatPrice } from "../../utils/utils";
 import { Link } from "react-router-dom"
 import { useNavigateBack } from "../../hooks/useNavigateBack";
+import { useState } from "react";
 
 export default function ItemDetail({product}) {
   const navigateBack = useNavigateBack("/");
+  const [itemsInCart, setItemsInCart] = useState(0);
+
+  const handleAddItem = (amount) => {
+    if(amount >=1) {
+      setItemsInCart(amount);
+      console.log(`Items agregados: ${amount}`)
+      console.log(itemsInCart);
+    } 
+  }
 
   return (
     <>
@@ -26,7 +36,23 @@ export default function ItemDetail({product}) {
         <Grid item xs={12} md={7} lg={6} sx={{display: 'flex', flexDirection: 'column', alignItems:'start', textAlign: 'start', paddingLeft: { md: 5 } }}>
           <Typography variant="h3" gutterBottom>{product.title}</Typography>
           <Typography variant="subtitle1" gutterBottom>{formatPrice(product.price)}</Typography>
-          <ItemCount stock={product.stock} />
+
+          {/* ternario para mostrar:
+            - ItemCount si no eligió producto
+            - Link a cart btn "terminar compra" si hizo click en "agregar a carrito" de ItemCount          
+          */}
+          {
+            itemsInCart > 0 ? (
+              <Button size="medium" variant="contained" component={Link} to="/cart">Terminar compra</Button>
+            ) : (
+              /* agregar dunción onAdd  */
+              <ItemCount stock={product.stock} onAdd={handleAddItem}/>
+            )
+          }
+
+          <p>{product.stock} artículos disponibles</p>
+
+
           <Typography variant="h6">Descripción:</Typography>
           <Typography variant="body1">{product.description}</Typography>
           <Button variant="contained" onClick={navigateBack} sx={{marginTop: 4}}>Volver atrás</Button>
