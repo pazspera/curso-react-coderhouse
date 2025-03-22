@@ -57,9 +57,11 @@ export default function NavBar() {
             </NavLink>
 					</Box>
 				</SwipeableDrawer>
-				<IconButton onClick={openDrawer}>
-					<MenuIcon />
-				</IconButton>
+        <Box sx={{display: 'flex', justifyContent: 'flex-start'}}>
+          <IconButton onClick={openDrawer} sx={{ alignSelf: 'start'}}>
+            <MenuIcon />
+          </IconButton>
+        </Box>
 			</>
 		);
 	};
