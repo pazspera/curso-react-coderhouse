@@ -2,17 +2,24 @@ import { createContext, useState } from "react";
 
 export const CartContext = createContext();
 
-export const CartComponentContext = ({children}) => {
+export const CartComponentContext = ({ children }) => {
   const [cartList, setCartList] = useState([]);
-
+  
   // agregar un producto al carrito
-  const addItem = (item, amount) => {
+  const addItemToCart = (item) => {
+    // el item viene con el amount dentro que en ItemDetail se crea un nuevo objeto con la info de producto y amount
+
     // verificar si el item ya está en cart
     // si está, sumarle el amount al existente
     // si no está, agregar al cartList
 
     // no aceptar duplicados 
 
+    // GUARDAR A cartList
+    // PARA AGREGAR ITEM A CART
+      // desestructurar el cartList existente y agregarle lo nuevo
+      setCartList([...cartList, item]);
+      console.log(cartList);
   };
 
   // borrar todos los productos del carrito
@@ -27,7 +34,7 @@ export const CartComponentContext = ({children}) => {
   const isInCart = (id) => {}
 
   return (
-    <CartContext.Provider value={{ cartList, addItem, clearCart, deleteItem }}>
+    <CartContext.Provider value={{ cartList, setCartList,  addItemToCart, clearCart, deleteItem }}>
       {children}
     </CartContext.Provider>
   )

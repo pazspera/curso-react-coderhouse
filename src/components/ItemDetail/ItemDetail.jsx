@@ -3,12 +3,16 @@ import { Grid, CardMedia, Button, Typography } from "@mui/material";
 import { formatPrice } from "../../utils/utils";
 import { Link } from "react-router-dom"
 import { useNavigateBack } from "../../hooks/useNavigateBack";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
 export default function ItemDetail({product}) {
   const navigateBack = useNavigateBack("/");
+  // NO hace falta un nuevo estado, se usa directamente el contexto
   const [itemsInCart, setItemsInCart] = useState(0);
+
+  // agregar y desestructurar el contexto para usarlo
+  const { addItemToCart } = useContext(CartContext);
 
   const handleAddItem = (amount) => {
     if(amount >=1) {
@@ -22,6 +26,7 @@ export default function ItemDetail({product}) {
       let itemToAdd = { ...product, amount: amount};
 
       console.dir(itemToAdd, {depth: null});
+ 
     } 
   }
 
