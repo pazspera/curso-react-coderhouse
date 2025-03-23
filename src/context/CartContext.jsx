@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext();
 
@@ -19,8 +19,12 @@ export const CartComponentContext = ({ children }) => {
     // PARA AGREGAR ITEM A CART
       // desestructurar el cartList existente y agregarle lo nuevo
       setCartList([...cartList, item]);
-      console.log(cartList);
   };
+
+  // TEMP mostrar en consola CartList cuando cambie
+  useEffect(() => {
+    console.log("Cart actualizado", cartList);
+  }, [cartList]);
 
   // borrar todos los productos del carrito
   const clearCart = () => {

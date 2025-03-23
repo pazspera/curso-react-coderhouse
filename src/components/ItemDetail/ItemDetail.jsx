@@ -21,12 +21,12 @@ export default function ItemDetail({product}) {
       console.log(itemsInCart);
 
       // armar objeto para mandar al cart
-      //    - tiene que tener el objeto de datos y la cantidad separada
-      // pasarle el objeto a addItem del contexto
+      // tiene que tener el objeto de datos y la cantidad separada
+      // pasarle el objeto a addItemToCart del contexto
       let itemToAdd = { ...product, amount: amount};
-
       console.dir(itemToAdd, {depth: null});
- 
+      
+      addItemToCart(itemToAdd); 
     } 
   }
 
