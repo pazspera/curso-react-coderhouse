@@ -4,7 +4,7 @@ import { formatPrice } from "../../utils/utils";
 import { Link } from "react-router-dom"
 import { useNavigateBack } from "../../hooks/useNavigateBack";
 import { useState } from "react";
-import { CartComponentContext } from "../../context/CartContext";
+import { CartContext } from "../../context/CartContext";
 
 export default function ItemDetail({product}) {
   const navigateBack = useNavigateBack("/");
@@ -15,6 +15,13 @@ export default function ItemDetail({product}) {
       setItemsInCart(amount);
       console.log(`Items agregados: ${amount}`)
       console.log(itemsInCart);
+
+      // armar objeto para mandar al cart
+      //    - tiene que tener el objeto de datos y la cantidad separada
+      // pasarle el objeto a addItem del contexto
+      let itemToAdd = { ...product, amount: amount};
+
+      console.dir(itemToAdd, {depth: null});
     } 
   }
 
