@@ -15,6 +15,9 @@ export const CartComponentContext = ({ children }) => {
 
     // no aceptar duplicados 
 
+    
+    console.log(isInCart(item.id));
+
     // GUARDAR A cartList
     // PARA AGREGAR ITEM A CART
       // desestructurar el cartList existente y agregarle lo nuevo
@@ -35,7 +38,9 @@ export const CartComponentContext = ({ children }) => {
   const deleteItem = (id) => {};
 
   // busca si ya existe el producto en el cart
-  const isInCart = (id) => {}
+  const isInCart = (id) => {
+    return cartList.some(product => product.id === id);
+  }
 
   return (
     <CartContext.Provider value={{ cartList, setCartList,  addItemToCart, clearCart, deleteItem }}>

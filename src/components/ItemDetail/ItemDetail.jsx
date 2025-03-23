@@ -8,7 +8,7 @@ import { CartContext } from "../../context/CartContext";
 
 export default function ItemDetail({product}) {
   const navigateBack = useNavigateBack("/");
-  // NO hace falta un nuevo estado, se usa directamente el contexto
+  // itemsInCart se usa para mostrar el ItemCount o btn de terminar compra 
   const [itemsInCart, setItemsInCart] = useState(0);
 
   // agregar y desestructurar el contexto para usarlo
