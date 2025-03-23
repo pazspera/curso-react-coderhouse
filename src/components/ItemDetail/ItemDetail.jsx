@@ -4,6 +4,7 @@ import { formatPrice } from "../../utils/utils";
 import { Link } from "react-router-dom"
 import { useNavigateBack } from "../../hooks/useNavigateBack";
 import { useState } from "react";
+import { CartComponentContext } from "../../context/CartContext";
 
 export default function ItemDetail({product}) {
   const navigateBack = useNavigateBack("/");
