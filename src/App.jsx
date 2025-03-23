@@ -6,15 +6,15 @@ import {Container} from "@mui/material";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Listener from "./components/Event";
 import InputSinVocales from "./components/InputSinVocales";
-import { CartContext } from "./context/CartContext";
+import { CartComponentContext } from "./context/CartContext";
 
 function App() {
 	const greeting = "Hola Mundo";
 
 	return (
 		<>
-      <CartContext>
-        <BrowserRouter>
+      <BrowserRouter>
+        <CartComponentContext>
           <NavBar />  
           <Routes>
             <Route exact path="/" element={<ItemListContainer greeting={greeting} />}></Route>
@@ -22,9 +22,10 @@ function App() {
             <Route exact path="/category/:categoryId" element={<ItemListContainer />}></Route>
             <Route exact path="/item/:id" element={<ItemDetailContainer />}></Route>
             <Route exact path="/events" element={<InputSinVocales />}></Route>
+            <Route path="*" element={<h1>404 Not Found</h1>}></Route>
           </Routes>
-        </BrowserRouter>
-      </CartContext>
+        </CartComponentContext>
+      </BrowserRouter>
 		</>
 	);
 }
