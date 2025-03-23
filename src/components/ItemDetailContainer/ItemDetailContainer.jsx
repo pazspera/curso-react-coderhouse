@@ -10,10 +10,6 @@ export default function ItemDetailContainer() {
   const [product, setProduct] = useState(null);
   const [loadingStatus, setLoadingStatus] = useState(true);
 
-  if(id) {
-    console.log(`id en ItemListContainer: ${id}`)
-  }
-
   useEffect(()=> {
     const fetchProductById = new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -24,7 +20,7 @@ export default function ItemDetailContainer() {
 
     fetchProductById
       .then((product) => {
-        console.log(product);
+        // console.log(product);
         setProduct(product);
       })
       .catch((err) => {

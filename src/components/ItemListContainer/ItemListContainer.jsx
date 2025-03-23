@@ -10,10 +10,6 @@ export default function ItemListContainer() {
   const { categoryId } = useParams();
   const [products, setProducts] = useState([]);
 
-  if(categoryId) {
-    console.log(`el id en itemlistcontainer es: ${categoryId}`)
-  }
-
   useEffect(() => {
     const fetchProducts = new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -29,7 +25,7 @@ export default function ItemListContainer() {
         return filteredProducts;
       })
       .then((filteredProducts) => {
-        console.log(filteredProducts);
+        // console.log(filteredProducts);
         // recorre cards y les agrega la propiedad de formattedPrice
         const updatedFilteredProducts = filteredProducts.map((card) => ({
           ...card,

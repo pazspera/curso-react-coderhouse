@@ -46,8 +46,6 @@ export default function ItemCount({ stock, initial = 1, onAdd }) {
 					onChange={handleInputChange}
 				/>
 
-				{console.log(stock)}
-
         <Button
 					variant="contained"
 					onClick={addItem}
