@@ -4,6 +4,7 @@ export const CartContext = createContext();
 
 export const CartComponentContext = ({ children }) => {
   const [cartList, setCartList] = useState([]);
+  const [itemsInCart, setItemsInCart] = useState(0);
   
   // agregar un producto al carrito
   const addItemToCart = (item) => {
@@ -40,6 +41,8 @@ export const CartComponentContext = ({ children }) => {
   // TEMP mostrar en consola CartList cuando cambie
   useEffect(() => {
     console.log("Cart actualizado", cartList);
+    setItemsInCart(countItemsInCart(cartList));
+    console.log("items in cart:", countItemsInCart(cartList));
   }, [cartList]);
 
   // borrar todos los productos del carrito
@@ -55,9 +58,17 @@ export const CartComponentContext = ({ children }) => {
     return cartList.some(product => product.id === id);
   }
 
+  // itera cartList y suma los amounts de cada producto para mostrar el total en CartWidget
+  const countItemsInCart = (cart) => {
+    let totalItems = 0;
+    cart.forEach(product => {
+      totalItems += product.amount;
+    });
+    return totalItems;
+  }
 
   return (
-    <CartContext.Provider value={{ cartList, setCartList,  addItemToCart, clearCart, deleteItem }}>
+    <CartContext.Provider value={{ cartList, setCartList,  addItemToCart, clearCart, deleteItem, itemsInCart, setItemsInCart }}>
       {children}
     </CartContext.Provider>
   )

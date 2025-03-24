@@ -4,12 +4,20 @@ import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
 
 export default function CartWidget() {
-  const {cartList} = useContext(CartContext);
+  const {cartList, itemsInCart } = useContext(CartContext);
 	return (
 		<>
-			<Badge badgeContent={cartList.length} color="secondary">
-				{<ShoppingCartIcon fontSize="medium" sx={{ marginLeft: 2 }} />}
-			</Badge>
+      { itemsInCart > 0 
+        ? (
+            <Badge badgeContent={itemsInCart} color="secondary">
+              {<ShoppingCartIcon fontSize="medium" sx={{ marginLeft: 2 }} />}
+            </Badge>
+        )
+        : (
+          <ShoppingCartIcon fontSize="medium" sx={{ marginLeft: 2 }} />
+        )
+
+      }
 		</>
 	);
 }
