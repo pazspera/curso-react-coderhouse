@@ -1,6 +1,12 @@
+import { useState, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
+
 
 export default function Cart() {
   // componente funcional
+  const { cartList } = useContext(CartContext);
+  console.log(`cartList.length: ${cartList.length}`)
+
 
   // mostrar los productos del carrito
   // todos los items agrupados, sin repetidos

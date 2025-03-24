@@ -30,6 +30,7 @@ export default function ItemDetail({product}) {
     } 
   }
 
+  
   return (
     <>
       <Grid container rowSpacing={2} sx={{ marginTop: 4, padding: 3, }}>

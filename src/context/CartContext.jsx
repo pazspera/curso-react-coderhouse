@@ -55,6 +55,7 @@ export const CartComponentContext = ({ children }) => {
     return cartList.some(product => product.id === id);
   }
 
+
   return (
     <CartContext.Provider value={{ cartList, setCartList,  addItemToCart, clearCart, deleteItem }}>
       {children}
