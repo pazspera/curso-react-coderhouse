@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Listener from "./components/Event";
 import InputSinVocales from "./components/InputSinVocales";
 import { CartComponentContext } from "./context/CartContext";
-import Cart from "./components/CartView/CartView";
+import CartView from "./components/CartView/CartView";
 
 function App() {
 	const greeting = "Hola Mundo";
@@ -19,7 +19,7 @@ function App() {
           <NavBar />  
           <Routes>
             <Route exact path="/" element={<ItemListContainer greeting={greeting} />}></Route>
-            <Route exact path="/cart" element={<Cart></Cart>}></Route>
+            <Route exact path="/cart" element={<CartView></CartView>}></Route>
             <Route exact path="/category/:categoryId" element={<ItemListContainer />}></Route>
             <Route exact path="/item/:id" element={<ItemDetailContainer />}></Route>
             <Route exact path="/events" element={<InputSinVocales />}></Route>
