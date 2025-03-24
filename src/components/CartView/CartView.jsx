@@ -1,10 +1,10 @@
 import Cart from "../Cart/Cart";
-import { Grid, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@mui/material"; 
+import { Grid, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from "@mui/material"; 
 import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
-import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-
+import CartProductList from "../CartProductList/CartProductList";
+import CartSummary from "../CartSummary/CartSummary";
 
 export default function CartView() {
   // componente de presentación
@@ -21,22 +21,18 @@ export default function CartView() {
             </>
           )
         : (
-            <Container>
-              <Grid container rowSpacing={2} sx={{marginTop: 4, padding: 3, border: '1px solid red'}}>
-                <TableContainer component={Paper}>
-                  <Table sx={{minWidth: 650}}>
-                    <TableHead>
-                      <TableRow>
-                        <TableCell>Producto</TableCell>
-                        <TableCell>Producto</TableCell>
-                        <TableCell>Producto</TableCell>
-                        <TableCell>Producto</TableCell>                  
-                      </TableRow>
-                    </TableHead>
-                  </Table>
-                </TableContainer>
-              </Grid>
-            </Container>
+            <>
+              <Container sx={{ display: "block", minHeight: "auto", width: "100%", textAlign: "left", border: '1px solid red', padding: '0 15px'}} maxWidth="xl">
+                <Grid container spacing={2}>
+                  <Grid item xs={12} md={8}>
+                    <CartProductList></CartProductList>
+                  </Grid>
+                  <Grid item xs={12} md={4}>
+                    <CartSummary></CartSummary>
+                  </Grid>
+                </Grid>
+              </Container>
+            </>
         )
       }
       
