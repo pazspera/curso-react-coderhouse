@@ -3,8 +3,7 @@ import { Grid, Container, Table, TableBody, TableCell, TableContainer, TableHead
 import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import CartProductList from "../CartProductList/CartProductList";
-import CartSummary from "../CartSummary/CartSummary";
+
 
 export default function CartView() {
   // componente de presentación
@@ -22,16 +21,7 @@ export default function CartView() {
           )
         : (
             <>
-              <Container sx={{ display: "block", minHeight: "auto", width: "100%", textAlign: "left", border: '1px solid red', padding: '0 15px'}} maxWidth="xl">
-                <Grid container spacing={2}>
-                  <Grid item xs={12} md={8}>
-                    <CartProductList></CartProductList>
-                  </Grid>
-                  <Grid item xs={12} md={4}>
-                    <CartSummary></CartSummary>
-                  </Grid>
-                </Grid>
-              </Container>
+              <Cart></Cart>
             </>
         )
       }
