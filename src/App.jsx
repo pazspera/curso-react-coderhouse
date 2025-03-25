@@ -8,25 +8,30 @@ import Listener from "./components/Event";
 import InputSinVocales from "./components/InputSinVocales";
 import { CartComponentContext } from "./context/CartContext";
 import CartView from "./components/CartView/CartView";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import theme from "./theme/theme";
 
 function App() {
 	const greeting = "Hola Mundo";
 
 	return (
 		<>
-      <BrowserRouter>
-        <CartComponentContext>
-          <NavBar />  
-          <Routes>
-            <Route exact path="/" element={<ItemListContainer greeting={greeting} />}></Route>
-            <Route exact path="/cart" element={<CartView></CartView>}></Route>
-            <Route exact path="/category/:categoryId" element={<ItemListContainer />}></Route>
-            <Route exact path="/item/:id" element={<ItemDetailContainer />}></Route>
-            <Route exact path="/events" element={<InputSinVocales />}></Route>
-            <Route path="*" element={<h1>404 Not Found</h1>}></Route>
-          </Routes>
+      <ThemeProvider theme={theme}>
+        {/* <CssBaseline /> */}
+        <CartComponentContext>  
+          <BrowserRouter>
+            <NavBar />  
+            <Routes>
+              <Route exact path="/" element={<ItemListContainer greeting={greeting} />}></Route>
+              <Route exact path="/cart" element={<CartView></CartView>}></Route>
+              <Route exact path="/category/:categoryId" element={<ItemListContainer />}></Route>
+              <Route exact path="/item/:id" element={<ItemDetailContainer />}></Route>
+              <Route exact path="/events" element={<InputSinVocales />}></Route>
+              <Route path="*" element={<h1>404 Not Found</h1>}></Route>
+            </Routes>
+          </BrowserRouter>
         </CartComponentContext>
-      </BrowserRouter>
+      </ThemeProvider>
 		</>
 	);
 }

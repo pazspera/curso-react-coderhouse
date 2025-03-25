@@ -1,20 +1,7 @@
 import { useState } from "react";
 import "./Navbar.css";
 import MenuIcon from "@mui/icons-material/Menu";
-import {
-	AppBar,
-	Box,
-	Container,
-	IconButton,
-	List,
-	ListItem,
-	ListItemIcon,
-	ListItemText,
-	SwipeableDrawer,
-	Toolbar,
-	Typography,
-	useMediaQuery,
-} from "@mui/material";
+import { AppBar, Box, Container,	IconButton,	List,	ListItem,	ListItemIcon,	ListItemText,	SwipeableDrawer,	Toolbar,	Typography,	useMediaQuery } from "@mui/material";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link, NavLink } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -38,7 +25,7 @@ export default function NavBar() {
 					<Box onClick={closeDrawer} onKeyDown={closeDrawer}>
 						<NavLink to="/">
               <Typography variant="subtitle1" component="p" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
-                Dados & Dragones
+                Turno extra
               </Typography>
             </NavLink>
 						<List>
@@ -72,7 +59,7 @@ export default function NavBar() {
 				<Toolbar className="navbar-container">
 					<NavLink to="/" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
             <Typography variant="subtitle1" component="p">
-              Dados & Dragones
+              Turno Extra
             </Typography>
           </NavLink>
 					<Box sx={{ display: "flex", alignItems: "center" }}>
