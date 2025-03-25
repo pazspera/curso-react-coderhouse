@@ -18,7 +18,7 @@ export default function CartProduct({product}) {
             sx={{ width: 90, height: 90 }}
           />
           <Box>
-            <Typography variant="h5">{product.title}</Typography>
+            <Typography variant="h6">{product.title}</Typography>
             <Typography variant="body2">Cantidad: {product.amount}</Typography>
             <Typography variant="body2">Precio: {product.price}</Typography>
             <Typography variant="body2">Total: {product.price * product.amount}</Typography>

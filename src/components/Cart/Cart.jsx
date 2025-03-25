@@ -2,7 +2,8 @@ import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import CartProductList from "../CartProductList/CartProductList";
 import CartSummary from "../CartSummary/CartSummary";
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Table, TableContainer, TableHead, TableCell, TableBody, TableRow, Paper } from "@mui/material";
+import CartProduct from "../CartProduct/CartProduct";
 
 export default function Cart() {
   // componente funcional
@@ -20,12 +21,32 @@ export default function Cart() {
     <>
       <Container sx={{ display: "block", minHeight: "auto", width: "100%", textAlign: "left", border: '1px solid red', padding: '0 15px'}} maxWidth="xl" disableGutters>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={8}>
-            <CartProductList></CartProductList>
+          <Grid item xs={12} md={10}>
+            <TableContainer component={Paper}>
+              <Table>
+                <TableHead>
+                  <TableCell>Producto</TableCell>
+                  <TableCell>Cantidad</TableCell>
+                  <TableCell>Precio</TableCell>
+                  <TableCell>Subtotal</TableCell>
+                </TableHead>
+
+                <TableBody>
+                  {cartList.map((product)=> (
+                    <TableRow key={product.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                      <TableCell component="th" scope="row">
+                        <CartProduct product={product}></CartProduct>
+                      </TableCell>
+                      <TableCell>{product.amount}</TableCell>
+                      <TableCell>{product.price}</TableCell>
+                      <TableCell>{product.price * product.amount}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
           </Grid>
-          <Grid item xs={12} md={4}>
-            <CartSummary></CartSummary>
-          </Grid>
+          <Grid item xs={12} md={10}>Subtotal: suma de todos los subtotales de productos</Grid>
         </Grid>
       </Container>
     </>
