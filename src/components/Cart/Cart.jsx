@@ -4,12 +4,12 @@ import CartSummary from "../CartSummary/CartSummary";
 import { Container, Grid, Table, TableContainer, TableHead, TableCell, TableBody, TableRow, Paper, Toolbar, Button } from "@mui/material";
 import CartProduct from "../CartProduct/CartProduct";
 import { formatPrice } from "../../utils/utils";
+import ItemCount from "../ItemCount/ItemCount";
 
 export default function Cart() {
   // componente funcional
   const { cartList, totalInCart, clearCart } = useContext(CartContext);
   console.log(`cartList.length: ${cartList.length}`)
-
 
   // mostrar los productos del carrito
   // todos los items agrupados, sin repetidos
@@ -27,10 +27,10 @@ export default function Cart() {
           <TableContainer component={Paper}>
             <Table>
               <TableHead>
-                <TableCell>Producto</TableCell>
-                <TableCell>Cantidad</TableCell>
-                <TableCell>Precio</TableCell>
-                <TableCell>Subtotal</TableCell>
+                <TableCell >Producto</TableCell>
+                <TableCell align="center">Cantidad</TableCell>
+                <TableCell align="center">Precio</TableCell>
+                <TableCell align="center">Subtotal</TableCell>
               </TableHead>
 
               <TableBody>
@@ -39,16 +39,16 @@ export default function Cart() {
                     <TableCell component="th" scope="row">
                       <CartProduct product={product}></CartProduct>
                     </TableCell>
-                    <TableCell>{product.amount}</TableCell>
-                    <TableCell>{formatPrice(product.price)}</TableCell>
-                    <TableCell>{formatPrice(product.price * product.amount)}</TableCell>
+                    <TableCell align="center">{product.amount}</TableCell>
+                    <TableCell align="center">{formatPrice(product.price)}</TableCell>
+                    <TableCell align="center">{formatPrice(product.price * product.amount)}</TableCell>
                   </TableRow>
                 ))}
 
                 <TableRow>
                   <TableCell rowSpan={2}></TableCell>
-                  <TableCell colSpan={2}>Subtotal</TableCell>
-                  <TableCell align="left">{formatPrice(totalInCart)}</TableCell>
+                  <TableCell colSpan={2} align="center">Subtotal</TableCell>
+                  <TableCell align="center">{formatPrice(totalInCart)}</TableCell>
                 </TableRow>
 
                 <TableRow sx={{ border: "none" }}>
