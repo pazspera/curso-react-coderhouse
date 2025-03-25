@@ -21,7 +21,9 @@ export default function CartView() {
           )
         : (
             <>
-              <Cart></Cart>
+              <Container sx={{ display: "block", minHeight: "auto", width: "100%", textAlign: "left", border: '1px solid red', padding: '0 15px'}} maxWidth="xl" disableGutters>
+                <Cart></Cart>
+              </Container>
             </>
         )
       }

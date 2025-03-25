@@ -19,7 +19,7 @@ export default function Cart() {
 
   return (
     <>
-      <Container sx={{ display: "block", minHeight: "auto", width: "100%", textAlign: "left", border: '1px solid red', padding: '0 15px'}} maxWidth="xl" disableGutters>
+      
         <Grid container spacing={2}>
           <Grid item xs={12} md={10}>
             <TableContainer component={Paper}>
@@ -42,13 +42,18 @@ export default function Cart() {
                       <TableCell>{product.price * product.amount}</TableCell>
                     </TableRow>
                   ))}
+
+                  <TableRow>
+                    <TableCell rowSpan={2}></TableCell>
+                    <TableCell colSpan={2}>Subtotal</TableCell>
+                    <TableCell align="left">Número compra</TableCell>
+                  </TableRow>
                 </TableBody>
               </Table>
             </TableContainer>
           </Grid>
-          <Grid item xs={12} md={10}>Subtotal: suma de todos los subtotales de productos</Grid>
         </Grid>
-      </Container>
+      
     </>
   )
 }
