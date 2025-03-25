@@ -49,6 +49,7 @@ export default function ItemListContainer() {
 					display: "block",
 					minHeight: "auto",
 					width: "100%",
+          paddingBottom: "48px"
 				}}
 				maxWidth="xl"
 			>

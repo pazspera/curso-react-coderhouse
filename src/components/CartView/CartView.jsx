@@ -1,8 +1,9 @@
 import Cart from "../Cart/Cart";
-import { Grid, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from "@mui/material"; 
+import { Grid, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, Box } from "@mui/material"; 
 import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import styles from "./CartView.module.css";
 
 
 export default function CartView() {
@@ -15,8 +16,10 @@ export default function CartView() {
         ?
           (
             <>
-              <p>El carrito de compras está vacío</p>
-              <Button size="medium" variant="contained" component={Link} to="/">Volver al inicio</Button>
+              <Box className={styles.mainContainer}>
+                <p>El carrito de compras está vacío</p>
+                <Button size="medium" variant="contained" component={Link} to="/">Ver tienda</Button>
+              </Box>
             </>
           )
         : (
