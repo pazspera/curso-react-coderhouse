@@ -14,7 +14,6 @@ export default function ItemDetailContainer() {
     const fetchProductById = new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(getProductById(products, Number(id)));
-        setLoadingStatus(false);
       }, 2000);
     });
 
@@ -26,14 +25,17 @@ export default function ItemDetailContainer() {
       .catch((err) => {
         console.log(err);
       })
+      .finally(()=>{
+        setLoadingStatus(false);
+      })
   }, [id])
 
   return  (
     <>
-      {product ? (
-        <ItemDetail product={product}/>
-      ) : (
+      {loadingStatus ? (
         <Loader loading={loadingStatus}/>
+      ) : (
+        <ItemDetail product={product}/>
       )}
     </>
   )

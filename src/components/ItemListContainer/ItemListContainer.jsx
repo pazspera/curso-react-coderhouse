@@ -10,34 +10,35 @@ import Loader from "../Loader/Loader";
 export default function ItemListContainer() {
   const { categoryId } = useParams();
   const [products, setProducts] = useState([]);
+  const [loadingStatus, setLoadingStatus] = useState(true);
 
   useEffect(() => {
-    const fetchProducts = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(productsData);
-      }, 2000);
-    }) 
-
-    fetchProducts
-      .then((data) => {
+    const fetchProducts = async () => { 
+      setLoadingStatus(true);
+  
+      try {
+        const data = await new Promise((resolve) => 
+          setTimeout(() => resolve(productsData), 2000) 
+        );
+  
         const filteredProducts = categoryId 
-          ? data.filter((product) => product.categories.includes(categoryId)) 
+          ? data.filter((product) => product.categories.includes(categoryId))
           : data;
-        return filteredProducts;
-      })
-      .then((filteredProducts) => {
-        // console.log(filteredProducts);
-        // recorre cards y les agrega la propiedad de formattedPrice
+  
         const updatedFilteredProducts = filteredProducts.map((card) => ({
           ...card,
           formattedPrice: formatPrice(card.price),
-        }))
+        }));
+  
         setProducts(updatedFilteredProducts);
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setLoadingStatus(false);
+      }
+    };
+  
+    fetchProducts(); 
   }, [categoryId]);
   
 
@@ -56,17 +57,17 @@ export default function ItemListContainer() {
 				{/* Fix para el fixed navbar, empuja contenido hacia abajo */}
 				<Toolbar />
 
-        {products ? (
-          <Box sx={{ 
-              display: "flex", 
-              flexWrap: "wrap", 
-              justifyContent: "flex-start",
-              width: "100%" 
-          }}>
-            <ItemList products={products}/>
-          </Box>
-        ) : (
+        {loadingStatus ? (
           <Loader loading={loadingStatus}/>
+        ) : (
+          <Box sx={{ 
+            display: "flex", 
+            flexWrap: "wrap", 
+            justifyContent: "flex-start",
+            width: "100%" 
+        }}>
+          <ItemList products={products}/>
+        </Box>
         )}
 			</Container>
 		</>
