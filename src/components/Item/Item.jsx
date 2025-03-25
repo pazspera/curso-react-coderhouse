@@ -1,20 +1,15 @@
 import "./Item.css";
-import {
-  Button,
-	Card,
-	CardActionArea,
-  CardActions,
-	CardContent,
-	CardMedia,
-	Typography,
-} from "@mui/material";
+import { Button, 	Card,	CardActionArea,  CardActions,	CardContent,	CardMedia,	Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-
+import { CartContext } from "../../context/CartContext";
+import { useContext } from "react";
 
 export default function Item({product}) {
-  /* if(product) {
-    console.log(`product.id en Item: ${product.id}`)
-  } */
+  const { addItemToCart } = useContext(CartContext);
+
+  const handleAddItem = () => {
+    addItemToCart({...product, amount: 1});
+  }
 
 	return (
 		<>
@@ -43,7 +38,17 @@ export default function Item({product}) {
 					</CardContent>
 				</CardActionArea>
         <CardActions>
-          <Button size="small" variant="contained" component={Link} to={`/item/${product.id}`}>Ver más</Button>
+        <Button 
+          size="small" 
+          variant="contained" 
+          stock={1} 
+          onClick={handleAddItem} 
+          component={Link}
+          to="/cart"
+          fullWidth>
+          Agregar al carrito
+        </Button>
+        {/* <Button size="small" variant="contained" component={Link} to={`/item/${product.id}`}>Ver más</Button> */}
         </CardActions>
 			</Card>
 		</>

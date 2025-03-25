@@ -59,7 +59,7 @@ export default function ItemDetail({product}) {
             itemsInCart > 0 ? (
               <Button size="medium" variant="contained" component={Link} to="/cart">Terminar compra</Button>
             ) : (
-              /* agregar dunción onAdd  */
+              /* agregar función onAdd  */
               <ItemCount stock={product.stock} onAdd={handleAddItem}/>
             )
           }
