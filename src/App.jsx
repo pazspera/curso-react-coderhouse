@@ -10,6 +10,7 @@ import { CartComponentContext } from "./context/CartContext";
 import CartView from "./components/CartView/CartView";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import theme from "./theme/theme";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 function App() {
 	const greeting = "Hola Mundo";
@@ -20,6 +21,7 @@ function App() {
         {/* <CssBaseline /> */}
         <CartComponentContext>  
           <BrowserRouter>
+            <ScrollToTop />
             <NavBar />  
             <Routes>
               <Route exact path="/" element={<ItemListContainer greeting={greeting} />}></Route>
