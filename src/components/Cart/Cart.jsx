@@ -7,7 +7,7 @@ import { formatPrice } from "../../utils/utils";
 
 export default function Cart() {
   // componente funcional
-  const { cartList, totalInCart } = useContext(CartContext);
+  const { cartList, totalInCart, clearCart } = useContext(CartContext);
   console.log(`cartList.length: ${cartList.length}`)
 
 
@@ -52,8 +52,11 @@ export default function Cart() {
                 </TableRow>
 
                 <TableRow sx={{ border: "none" }}>
-                  <TableCell rowSpan={2} colSpan={4} sx={{ border: "none" }}>
+                  <TableCell rowSpan={2} colSpan={2} sx={{ border: "none" }}>
                     <Button size="medium" variant="contained" fullWidth>Terminar compra</Button>
+                  </TableCell>
+                  <TableCell>
+                    <Button onClick={()=> clearCart()}>Vaciar carrito</Button>
                   </TableCell>
                 </TableRow>
 
