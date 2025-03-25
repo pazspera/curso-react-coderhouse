@@ -1,7 +1,6 @@
 
 import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import CartProductList from "../CartProductList/CartProductList";
 import CartSummary from "../CartSummary/CartSummary";
 import { Container, Grid, Table, TableContainer, TableHead, TableCell, TableBody, TableRow, Paper } from "@mui/material";
 import CartProduct from "../CartProduct/CartProduct";
@@ -21,8 +20,8 @@ export default function Cart() {
   return (
     <>
       
-        <Grid container spacing={2}>
-          <Grid item xs={12} >
+        <Grid container spacing={2} gap={2}>
+          <Grid item xs={12} lg={8}>
             <TableContainer component={Paper}>
               <Table>
                 <TableHead>
@@ -52,6 +51,9 @@ export default function Cart() {
                 </TableBody>
               </Table>
             </TableContainer>
+          </Grid>
+          <Grid item xs={12} lg={3}>
+            <CartSummary></CartSummary>
           </Grid>
         </Grid>
       
