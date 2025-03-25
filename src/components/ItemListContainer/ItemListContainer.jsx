@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { formatPrice } from "../../utils/utils";
 import productsData from "../../assets/data/products.json";
+import Loader from "../Loader/Loader";
 
 export default function ItemListContainer() {
   const { categoryId } = useParams();
@@ -54,14 +55,18 @@ export default function ItemListContainer() {
 				{/* Fix para el fixed navbar, empuja contenido hacia abajo */}
 				<Toolbar />
 
-        <Box sx={{ 
-            display: "flex", 
-            flexWrap: "wrap", 
-            justifyContent: "flex-start",
-            width: "100%" 
-        }}>
-          <ItemList products={products}/>
-        </Box>
+        {products ? (
+          <Box sx={{ 
+              display: "flex", 
+              flexWrap: "wrap", 
+              justifyContent: "flex-start",
+              width: "100%" 
+          }}>
+            <ItemList products={products}/>
+          </Box>
+        ) : (
+          <Loader loading={loadingStatus}/>
+        )}
 			</Container>
 		</>
 	);
