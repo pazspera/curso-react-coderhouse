@@ -1,0 +1,11 @@
+.productContainer {
+  display: flex;
+  justify-content: space-between;
+  min-width: 350px;
+}
+
+@media(min-width: 900px) {
+  .cartProduct-product-container {
+    min-width: 350px;
+  }
+}

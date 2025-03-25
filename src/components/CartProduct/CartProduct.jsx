@@ -1,4 +1,6 @@
+import styles from "./CartProduct.module.css";
 import { Grid, Typography, CardMedia, Box } from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function CartProduct({product}) {
   // nombre producto
@@ -17,11 +19,9 @@ export default function CartProduct({product}) {
             alt={product.title}
             sx={{ width: 90, height: 90 }}
           />
-          <Box>
-            <Typography variant="h6">{product.title}</Typography>
-            <Typography variant="body2">Cantidad: {product.amount}</Typography>
-            <Typography variant="body2">Precio: {product.price}</Typography>
-            <Typography variant="body2">Total: {product.price * product.amount}</Typography>
+          <Box className={styles.productContainer}>
+            <Typography variant="body1">{product.title}</Typography>
+            <DeleteIcon></DeleteIcon>
           </Box>
         </Box>
       </Grid>
