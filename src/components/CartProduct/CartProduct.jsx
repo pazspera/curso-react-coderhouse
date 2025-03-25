@@ -1,13 +1,15 @@
 import styles from "./CartProduct.module.css";
 import { Grid, Typography, CardMedia, Box } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
+import { CartContext } from "../../context/CartContext";
+import { useContext } from "react";
 
 export default function CartProduct({product}) {
   // nombre producto
   // img producto miniatura
   // total producto = amount.precio (formato precio)
   // btn eliminar items (trash can)
-
+  const { deleteItem } = useContext(CartContext);
 
   return (
     <>
@@ -21,7 +23,7 @@ export default function CartProduct({product}) {
           />
           <Box className={styles.productContainer}>
             <Typography variant="body1">{product.title}</Typography>
-            <DeleteIcon></DeleteIcon>
+            <DeleteIcon className={styles.deleteIcon} onClick={()=> deleteItem(product.id)}></DeleteIcon>
           </Box>
         </Box>
       </Grid>

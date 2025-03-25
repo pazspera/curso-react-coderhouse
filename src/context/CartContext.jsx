@@ -54,7 +54,12 @@ export const CartComponentContext = ({ children }) => {
   };
 
   // borrar un producto del carrito
-  const deleteItem = (id) => {};
+  const deleteItem = (id) => {
+    // encontrar producto en cartList
+    // borrar producto
+    const cartWithoutDeletedProduct = cartList.filter((product) => product.id !== id);
+    setCartList(cartWithoutDeletedProduct);
+  };
 
   // busca si ya existe el producto en el cart
   const isInCart = (id) => {
