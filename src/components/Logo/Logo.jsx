@@ -5,15 +5,9 @@ export default function Logo() {
 
   return (
     <>
-      <Box>
-        <CardMedia 
-          component="img"
-          height="64"
-          image=""
-        />
-        <Box>
-          <span>Juegos, dados y</span>
-          <span>dos armas humeantes</span>
+      <Box sx={{ display: "flex", flexDirection: "row" }}>
+        <Box className={styles.logoContainer}>
+          <span className={styles.logoText}>Caladan Games</span>
         </Box>
       </Box>
     </>

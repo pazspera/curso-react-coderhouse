@@ -5,6 +5,7 @@ import { AppBar, Box, Container,	IconButton,	List,	ListItem,	ListItemIcon,	ListI
 import CartWidget from "../CartWidget/CartWidget";
 import { Link, NavLink } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Logo from "../Logo/Logo";
 
 export default function NavBar() {
 	const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
@@ -25,7 +26,7 @@ export default function NavBar() {
 					<Box onClick={closeDrawer} onKeyDown={closeDrawer}>
 						<NavLink to="/">
               <Typography variant="subtitle1" component="p" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
-                Turno extra
+                <Logo></Logo>
               </Typography>
             </NavLink>
 						<List>
@@ -59,7 +60,7 @@ export default function NavBar() {
 				<Toolbar className="navbar-container">
 					<NavLink to="/" style={({ isActive }) => ({ color: isActive ? "darkslateblue" : "white" })}>
             <Typography variant="subtitle1" component="p">
-              Turno Extra
+              <Logo></Logo>
             </Typography>
           </NavLink>
 					<Box sx={{ display: "flex", alignItems: "center" }}>

@@ -1,7 +1,11 @@
-.logo {
-  font-family: "Ribeye Marrow";
+.logoText {
+  font-family: "Anton";
+  margin: 0;
+  transition: 0.15;
+  font-size: 24px;
+  letter-spacing: -0.75px;
 }
 
-.logo:hover {
-  font-family: "Ribeye";
+.logoContainer {
+  max-width: 180px;
 }
