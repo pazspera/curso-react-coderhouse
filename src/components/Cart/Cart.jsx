@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import CartSummary from "../CartSummary/CartSummary";
-import { Container, Grid, Table, TableContainer, TableHead, TableCell, TableBody, TableRow, Paper, Toolbar, Button } from "@mui/material";
+import { Container, Grid, Table, TableContainer, TableHead, TableCell, TableBody, TableRow, Paper, Toolbar, Button, Typography } from "@mui/material";
 import CartProduct from "../CartProduct/CartProduct";
 import { formatPrice } from "../../utils/utils";
 import ItemCount from "../ItemCount/ItemCount";
@@ -25,6 +25,11 @@ export default function Cart() {
       <Toolbar />
       
       <Grid container spacing={2} gap={1}>
+        <Grid item xs={12}>
+          <Typography variant="h3" component="h1">Mi carrito</Typography>
+        </Grid>
+
+
         <Grid item xs={12} lg={12}>
           <TableContainer component={Paper}>
             <Table>
