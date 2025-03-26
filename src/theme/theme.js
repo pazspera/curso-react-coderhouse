@@ -50,6 +50,43 @@ const theme = createTheme({
     overline: {
       fontFamily: "'Barlow', sans-serif",
     }
+  },
+  palette: {
+    primary: {
+      main: "#A0522D",
+    },
+    secondary: {
+      main: "#8B5A2B",
+    },
+    error: {
+      main: "#D9534F",
+    },
+    warning: {
+      main: "#F0AD4E",
+    },
+    info: {
+      main: "#5BC0DE",
+    },
+    success: {
+      main: "#5A9367",
+    },
+    background: {
+      default: "#E1CFB7",
+      paper: "#F9F4F0",
+    }
+  },
+  components: {
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          textDecoration: "none",
+          color: "white", 
+          "&:hover": {
+            color: "#50667E",
+          }
+        }
+      }
+    },
   }
 });
 
