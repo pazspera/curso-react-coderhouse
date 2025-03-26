@@ -5,10 +5,12 @@ import { Container, Grid, Table, TableContainer, TableHead, TableCell, TableBody
 import CartProduct from "../CartProduct/CartProduct";
 import { formatPrice } from "../../utils/utils";
 import ItemCount from "../ItemCount/ItemCount";
+import { useTheme } from "@mui/material/styles";
 
 export default function Cart() {
   // componente funcional
   const { cartList, totalInCart, clearCart } = useContext(CartContext);
+  const theme = useTheme();
   console.log(`cartList.length: ${cartList.length}`)
 
   // mostrar los productos del carrito
@@ -56,7 +58,7 @@ export default function Cart() {
                     <Button size="medium" variant="contained" fullWidth>Terminar compra</Button>
                   </TableCell>
                   <TableCell>
-                    <Button onClick={()=> clearCart()}>Vaciar carrito</Button>
+                    <Button onClick={()=> clearCart()} sx={{ color: theme.palette.primary.main, "&:hover": { color: theme.palette.primary.main, backgroundColor: theme.palette.activeColor.main} }}>Vaciar carrito</Button>
                   </TableCell>
                 </TableRow>
 
