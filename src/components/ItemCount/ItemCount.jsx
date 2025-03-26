@@ -42,7 +42,6 @@ export default function ItemCount({ stock, initial = 1, onAdd }) {
         
 				<Input
 					value={itemCount}
-					sx={{ color: "white" }}
 					onChange={handleInputChange}
 				/>
 

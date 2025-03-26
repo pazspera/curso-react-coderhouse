@@ -102,6 +102,15 @@ const theme = createTheme({
           }
         }
       }
+    },
+    MuiCardActionArea: {
+      styleOverrides: {
+        root: {
+          "&:hover": {
+            color: "#8B5A2B"
+          }
+        }
+      }
     }
   }
 });

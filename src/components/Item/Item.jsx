@@ -28,8 +28,8 @@ export default function Item({product}) {
             sizes="(max-width: 600px) 480px, (max-width: 960px) 768px, 1280px"
 					/>
 
-					<CardContent>
-						<Typography variant="subtitle2" component="h3">
+					<CardContent sx={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
+						<Typography variant="h6" component="h3">
 							{product.title}
 						</Typography>
 						<Typography variant="body2" component="p">
