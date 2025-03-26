@@ -73,6 +73,12 @@ const theme = createTheme({
     background: {
       default: "#E1CFB7",
       paper: "#F9F4F0",
+    },
+    activeColor: {
+      main: "#F2D8B3"
+    },
+    inactiveColor: {
+      main: "#ffffff",
     }
   },
   components: {
@@ -82,11 +88,21 @@ const theme = createTheme({
           textDecoration: "none",
           color: "white", 
           "&:hover": {
-            color: "#50667E",
+            color: "#F2D8B3",
           }
         }
       }
     },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          color: "white",
+          "&:hover": {
+            color: "#F2D8B3",
+          }
+        }
+      }
+    }
   }
 });
 
