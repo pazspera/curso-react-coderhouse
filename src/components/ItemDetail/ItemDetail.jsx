@@ -60,7 +60,7 @@ export default function ItemDetail({product}) {
               <Button size="medium" variant="contained" component={Link} to="/cart">Terminar compra</Button>
             ) : (
               /* agregar función onAdd  */
-              <ItemCount stock={product.stock} onAdd={handleAddItem}/>
+              <ItemCount stock={product.stock} onAdd={handleAddItem} variant="full"/>
             )
           }
 
