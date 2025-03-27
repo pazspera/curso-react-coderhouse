@@ -1,3 +1,24 @@
+.productCardImg {
+  transition: transform 0.2s ease-in-out;
+  position: relative;
+  z-index: 0;
+}
+
+.productCardImg:hover {
+  transition: transform 0.2s ease-in-out;
+  transform: scale(1.05);
+}
+
+.productCardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 16px;
+  position: relative;
+  z-index: 1;
+  background-color: #F9F4F0;
+}
+
 @media(min-width: 600px) {
   .productCard {
     max-width: 250px;

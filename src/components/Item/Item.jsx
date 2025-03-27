@@ -14,7 +14,7 @@ export default function Item({product}) {
 	return (
 		<>
 			<Card sx={{  height: '100%' }} className="productCard">
-				<CardActionArea component={Link} to={`/item/${product.id}`}>
+				<CardActionArea component={Link} to={`/item/${product.id}`} sx={{ overflow: "hidden", position: "relative"}}>
 					<CardMedia
 						component="img"
 						heigth="150"
@@ -26,9 +26,10 @@ export default function Item({product}) {
               ${product.pictureUrl.replace(".jpg", "-large.jpg")} 1280w,
               `}
             sizes="(max-width: 600px) 480px, (max-width: 960px) 768px, 1280px"
+            className="productCardImg"
 					/>
 
-					<CardContent sx={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
+					<CardContent className="productCardContent" sx={{ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 2, position: "relative", zIndex: 1}}>
 						<Typography variant="h6" component="h3">
 							{product.title}
 						</Typography>
