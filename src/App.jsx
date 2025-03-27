@@ -25,10 +25,10 @@ function App() {
             <NavBar />  
             <Routes>
               <Route exact path="/" element={<ItemListContainer greeting={greeting} />}></Route>
-              <Route exact path="/cart" element={<CartView></CartView>}></Route>
-              <Route exact path="/category/:categoryId" element={<ItemListContainer />}></Route>
-              <Route exact path="/item/:id" element={<ItemDetailContainer />}></Route>
-              <Route exact path="/events" element={<InputSinVocales />}></Route>
+              <Route path="/cart" element={<CartView></CartView>}></Route>
+              <Route path="/category/:categoryId" element={<ItemListContainer />}></Route>
+              <Route path="/item/:id" element={<ItemDetailContainer />}></Route>
+              <Route path="/events" element={<InputSinVocales />}></Route>
               <Route path="*" element={<h1>404 Not Found</h1>}></Route>
             </Routes>
           </BrowserRouter>
