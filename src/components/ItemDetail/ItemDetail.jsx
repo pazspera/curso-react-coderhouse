@@ -63,7 +63,13 @@ export default function ItemDetail({product}) {
             )
           }
 
-          <p>{product.stock} artículos disponibles</p>
+          {
+            product.stock === 1 ? (
+              <p>¡Último disponible!</p>
+            ) : (
+              <p>{product.stock} artículos disponibles</p>
+            )
+          }
 
 
           <Typography variant="h6">Descripción:</Typography>
