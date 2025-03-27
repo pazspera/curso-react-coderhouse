@@ -19,6 +19,17 @@
   background-color: #F9F4F0;
 }
 
+.lastItemWarning {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 33;
+  background-color: #F0AD4E;
+  padding: 4px 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
 @media(min-width: 600px) {
   .productCard {
     max-width: 250px;

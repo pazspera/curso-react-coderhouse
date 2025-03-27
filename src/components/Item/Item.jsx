@@ -13,8 +13,11 @@ export default function Item({product}) {
 
 	return (
 		<>
-			<Card sx={{  height: '100%' }} className="productCard">
+			<Card sx={{  height: '100%', position: "relative" }} className="productCard">
 				<CardActionArea component={Link} to={`/item/${product.id}`} sx={{ overflow: "hidden", position: "relative"}}>
+          {
+            product.stock === 1 && <span className="lastItemWarning">¡Último disponible!</span>
+          }
 					<CardMedia
 						component="img"
 						heigth="150"

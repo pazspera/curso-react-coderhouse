@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import { useNavigateBack } from "../../hooks/useNavigateBack";
 import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import styles from "./ItemDetail.module.css"
 
 export default function ItemDetail({product}) {
   const navigateBack = useNavigateBack("/");
@@ -65,9 +66,11 @@ export default function ItemDetail({product}) {
 
           {
             product.stock === 1 ? (
-              <p>¡Último disponible!</p>
+              <div>
+                <div className={`${styles.ItemDetailStock} ${styles.lastItemWarning}`}>¡Último disponible!</div>
+              </div>
             ) : (
-              <p>{product.stock} artículos disponibles</p>
+              <div className={styles.ItemDetailStock}>{product.stock} artículos disponibles</div>
             )
           }
 
