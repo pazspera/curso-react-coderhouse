@@ -1,8 +1,10 @@
 import { Button, TextField, Box, Input } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 export default function ItemCount({ stock, initial = 1, onAdd, variant }) {
 	const [itemCount, setItemCount] = useState(Number(initial));
+  const { updateItemAmount } = useContext(CartContext);
 
   // useEffect para actualizar itemCount desde Cart
   useEffect(() => {
@@ -40,7 +42,7 @@ export default function ItemCount({ stock, initial = 1, onAdd, variant }) {
       setItemCount((prevCount) =>  {
         const newCount = prevCount + 1;
         // actualiza cart
-        onAdd(newCount);
+        updateItemAmount(productId, newCount);
         return newCount;
       })
     }
@@ -51,7 +53,7 @@ export default function ItemCount({ stock, initial = 1, onAdd, variant }) {
       // resta el item y actualiza el cart
       setItemCount((prevCount) => {
         const newCount = prevCount - 1;
-        onAdd(newCount);
+        updateItemAmount(productId, newCount);
         return newCount;
       })
     }

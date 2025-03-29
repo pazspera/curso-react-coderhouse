@@ -42,7 +42,6 @@ export default function Cart() {
           <Typography variant="h3" component="h1">Mi carrito</Typography>
         </Grid>
 
-
         <Grid item xs={12} lg={12}>
           <TableContainer component={Paper}>
             <Table>
@@ -62,7 +61,13 @@ export default function Cart() {
                       <CartProduct product={product}></CartProduct>
                     </TableCell>
                     <TableCell align="center">
-                      <ItemCount stock={product.stock} initial={product.amount} variant="compact" onAdd={(amount)=> handleAddItem(product, amount)}></ItemCount>
+                      <ItemCount 
+                        stock={product.stock} 
+                        initial={product.amount}
+                        variant="compact" 
+                        productId={product.id}
+                      >
+                      </ItemCount>
                     </TableCell>
                     {/* <TableCell align="center">{product.amount}</TableCell> */}
                     <TableCell align="center">{formatPrice(product.price)}</TableCell>

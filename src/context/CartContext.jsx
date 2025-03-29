@@ -83,8 +83,19 @@ export const CartComponentContext = ({ children }) => {
     return total;
   }
 
+  const updateItemAmount = (id, newAmount) => {
+    // impide que mande algo menos de 1
+    if(newAmount < 1) return;
+
+    setCartList((prevCart) => {
+      prevCart.map((product) => {
+        return product.id === id ? { ...product, amount: newAmount } : product;
+      })
+    })
+  }
+
   return (
-    <CartContext.Provider value={{ cartList, setCartList,  addItemToCart, clearCart, deleteItem, itemsInCart, setItemsInCart, totalInCart }}>
+    <CartContext.Provider value={{ cartList, setCartList,  addItemToCart, clearCart, deleteItem, itemsInCart, setItemsInCart, totalInCart, updateItemAmount }}>
       {children}
     </CartContext.Provider>
   )
