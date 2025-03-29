@@ -9,7 +9,7 @@ import { useTheme } from "@mui/material/styles";
 
 export default function Cart() {
   // componente funcional
-  const { cartList, totalInCart, clearCart } = useContext(CartContext);
+  const { cartList, totalInCart, clearCart, addItemToCart } = useContext(CartContext);
   const theme = useTheme();
   console.log(`cartList.length: ${cartList.length}`)
 
@@ -18,6 +18,19 @@ export default function Cart() {
   // borrar items en cada producto, no editar cantidad
   // ruta a carrito
   // mensaje de no hay items con btn a home
+
+  const handleAddItem = (product, amount) => {
+    if(amount >=1) {
+      console.log(`Items agregados: ${amount}`)
+
+      // armar objeto para mandar al cart
+      // tiene que tener el objeto de datos y la cantidad separada
+      // pasarle el objeto a addItemToCart del contexto
+      let itemToAdd = { ...product, amount: amount};
+      
+      addItemToCart(itemToAdd); 
+    } 
+  }
 
   return (
     <>
@@ -34,10 +47,12 @@ export default function Cart() {
           <TableContainer component={Paper}>
             <Table>
               <TableHead>
-                <TableCell >Producto</TableCell>
-                <TableCell align="center">Cantidad</TableCell>
-                <TableCell align="center">Precio</TableCell>
-                <TableCell align="center">Subtotal</TableCell>
+                <TableRow>
+                  <TableCell >Producto</TableCell>
+                  <TableCell align="center">Cantidad</TableCell>
+                  <TableCell align="center">Precio</TableCell>
+                  <TableCell align="center">Subtotal</TableCell>
+                </TableRow>
               </TableHead>
 
               <TableBody>
@@ -46,7 +61,10 @@ export default function Cart() {
                     <TableCell component="th" scope="row">
                       <CartProduct product={product}></CartProduct>
                     </TableCell>
-                    <TableCell align="center">{product.amount}</TableCell>
+                    <TableCell align="center">
+                      <ItemCount stock={product.stock} initial={product.amount} variant="compact" onAdd={(amount)=> handleAddItem(product, amount)}></ItemCount>
+                    </TableCell>
+                    {/* <TableCell align="center">{product.amount}</TableCell> */}
                     <TableCell align="center">{formatPrice(product.price)}</TableCell>
                     <TableCell align="center">{formatPrice(product.price * product.amount)}</TableCell>
                   </TableRow>

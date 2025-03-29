@@ -4,6 +4,11 @@ import { useState, useEffect } from "react";
 export default function ItemCount({ stock, initial = 1, onAdd, variant }) {
 	const [itemCount, setItemCount] = useState(Number(initial));
 
+  // useEffect para actualizar itemCount desde Cart
+  useEffect(() => {
+    setItemCount(Number(initial));
+  }, [initial]);
+
   // funciones para variant full
 	const addItem = () => {
 		if (itemCount < stock) {
@@ -29,7 +34,28 @@ export default function ItemCount({ stock, initial = 1, onAdd, variant }) {
   // ***
 
   // funciones para variant compact
+  const addItemAndUpdateCart = (e) => {
+    if (itemCount < stock) {
+      // suma el item y actualiza el cart
+      setItemCount((prevCount) =>  {
+        const newCount = prevCount + 1;
+        // actualiza cart
+        onAdd(newCount);
+        return newCount;
+      })
+    }
+  }
 
+  const removeItemAndUpdateCart = (e) => {
+    if (itemCount > 1) {
+      // resta el item y actualiza el cart
+      setItemCount((prevCount) => {
+        const newCount = prevCount - 1;
+        onAdd(newCount);
+        return newCount;
+      })
+    }
+  }
   // ***
 
   // Agregar un condicional para que muestre o no
@@ -72,13 +98,13 @@ export default function ItemCount({ stock, initial = 1, onAdd, variant }) {
       {variant === "compact" && (
         <>
           <Box sx={{ display: "flex", gap: 2, alignItems: "center", justifyContent: "center", marginBottom: 2 }}>
-            <Button variant="contained" onClick={removeItem} size="small">
+            <Button variant="contained" onClick={removeItemAndUpdateCart} size="small">
               -
             </Button>
             
-            <Input value={itemCount} onChange={handleInputChange} />
+            <Input value={itemCount} onChange={handleInputChange} sx={{ width: "70px"}} />
 
-            <Button variant="contained" onClick={addItem}   disabled={itemCount === stock} size="small">
+            <Button variant="contained" onClick={addItemAndUpdateCart}   disabled={itemCount === stock} size="small">
               +
             </Button>
           </Box>
