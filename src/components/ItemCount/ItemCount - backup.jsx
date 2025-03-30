@@ -5,17 +5,11 @@ import { CartContext } from "../../context/CartContext";
 export default function ItemCount({ stock, initial = 1, onAdd, variant, productId }) {
 	const [itemCount, setItemCount] = useState(Number(initial));
   const { updateItemAmount } = useContext(CartContext);
-  // valor string para permitir que el usuario borre el número de input y ponga el total que quiere
-  const [inputValue, setInputValue] = useState(String(initial));
 
   // useEffect para actualizar itemCount desde Cart
   useEffect(() => {
     setItemCount(Number(initial));
   }, [initial]);
-
-  useEffect(()=> {
-    setInputValue(String(itemCount));
-  }, [itemCount]);
 
   // funciones para variant full
 	const addItem = () => {
@@ -31,42 +25,15 @@ export default function ItemCount({ stock, initial = 1, onAdd, variant, productI
 	};
 
 	const handleInputChange = (e) => {
-		const newValue = e.target.value;
-    if(newValue === "") {
-      setInputValue("");
-      return;
-    }
+		const newValue = parseInt(e.target.value);
 
-    setInputValue(newValue);
+		if (newValue > stock) {
+			setItemCount(stock);
+		}
+		if (newValue < stock && newValue >= 1) {
+			setItemCount(newValue);
+		}
 	};
-
-  // handleInputBlur maneja la validación del input una vez que el usuario deja de escribir en el input
-  const handleInputOnBlur = () => {
-    const enteredValue = parseInt(inputValue);
-    
-    if(inputValue === "") {
-      setInputValue(String(itemCount));
-      return;
-    }
-    
-    if(!isNaN(enteredValue)) {
-      if(enteredValue < 1) {
-        setItemCount(1);
-        setInputValue("1");
-      } else if (enteredValue > stock) {
-        setItemCount(stock);
-        setInputValue(String(stock));
-      } else {
-        setItemCount(enteredValue);
-      }
-    } else {
-      // vuelve al valor anterior en caso de que el input esté vacío
-      setInputValue(String(itemCount));
-    }
-  }
-
-
-
   // ***
 
   // funciones para variant compact
@@ -111,11 +78,12 @@ export default function ItemCount({ stock, initial = 1, onAdd, variant, productI
           <>
             <Box sx={{ display: "flex", gap: 2, alignItems: "center", justifyContent: "center", marginBottom: 2 }}>
           
-              <Button variant="contained" onClick={removeItem}>
+              <Button variant="contained" onClick={removeItem}
+              >
                 -
               </Button>
               
-              <Input value={inputValue} onChange={handleInputChange} onBlur={handleInputOnBlur}
+              <Input value={itemCount} onChange={handleInputChange}
               />
 
               <Button
@@ -141,7 +109,7 @@ export default function ItemCount({ stock, initial = 1, onAdd, variant, productI
               -
             </Button>
             
-            <Input value={inputValue} onChange={handleInputChange} sx={{ width: "70px"}} onBlur={handleInputOnBlur} />
+            <Input value={itemCount} onChange={handleInputChange} sx={{ width: "70px"}} />
 
             <Button variant="contained" onClick={addItemAndUpdateCart}   disabled={itemCount === stock} size="small">
               +
