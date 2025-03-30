@@ -25,7 +25,7 @@ export default function CartProduct({product}) {
             component="img" 
             image={product.pictureUrlCart}
             alt={product.title}
-            sx={{ width: 90, height: 90 }}
+            sx={{ width: 90, height: 90, display: loaded ? "block" : "none" }}
             onLoad={()=> setLoaded(true)}
           />
           <Box className={styles.productContainer}>
