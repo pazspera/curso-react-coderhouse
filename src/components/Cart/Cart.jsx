@@ -41,14 +41,14 @@ export default function Cart() {
       {/* Fix para el fixed navbar, empuja contenido hacia abajo */}
       <Toolbar />
 
-        <Grid container spacing={1} gap={1}>
+        <Grid container spacing={1} sx={{ display: "flex", height: "100%", alignItems: "stretch"}}>
           <Grid item xs={12}>
             <Typography variant="h3" component="h1">Mi carrito</Typography>
           </Grid>
 
           {cartList.map((product) => (
-            <Grid item xs={12} md={6} key={product.id}>
-              <Paper elevation={1} sx={{ padding: 2 }}>
+            <Grid item xs={12} md={6} key={product.id} sx={{ display: "flex", minHeight: "220px"}}>
+              <Paper elevation={1} sx={{ padding: 2, display: "flex", flexDirection: "column", flexGrow: 1 }}>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                   <CardMedia
                     component="img"
@@ -66,7 +66,8 @@ export default function Cart() {
                     </Box>
                   </Box>
                 </Box>
-                <Box sx={{ marginTop: 2, marginBottom: 1, display: "flex", alignItems: "center", flexDirection: "column" }}> 
+
+                <Box sx={{ marginTop: 2, marginBottom: 1, display: "flex", alignItems: "center", flexDirection: "column", flexGrow: 1 }}> 
                   <ItemCount
                     stock={product.stock}
                     initial={product.amount}
@@ -86,16 +87,14 @@ export default function Cart() {
             </Grid>
           ))}
 
-          <Grid item xs={12} md={cartList.length === 1 ? 6 : cartList.length % 2 === 0 ? 12 : 6}>
-            <Paper elevation={1} sx={{ padding: 2, display: "flex", flexDirection:"column", alignItems: "center", gap: 2 }}>
+          <Grid item xs={12} md={cartList.length === 1 ? 6 : cartList.length % 2 === 0 ? 12 : 6 } sx={{ minHeight: "220px" }}>
+            <Paper elevation={1} sx={{ padding: 2, display: "flex", flexDirection:"column", alignItems: "center", justifyContent: "center", gap: 2, minHeight: "100%"}}>
              <Typography variant="" component="h4">Total: {formatPrice(totalInCart)}</Typography> 
              <Button size="medium" variant="contained" fullWidth>Terminar compra</Button>
              <Button onClick={()=> clearCart()} sx={{ color: theme.palette.primary.main, "&:hover": { color: theme.palette.primary.main, backgroundColor: theme.palette.activeColor.main} }}>Vaciar carrito</Button>
             </Paper>
           </Grid>
-        </Grid>
-
-        
+        </Grid>        
       </>
     )
   }
