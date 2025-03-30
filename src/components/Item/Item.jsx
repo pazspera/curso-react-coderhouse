@@ -14,7 +14,7 @@ export default function Item({product}) {
 
 	return (
 		<>
-			<Card sx={{  height: '100%', position: "relative" }} className="productCard">
+			<Card sx={{  height: '100%', position: "relative", display: "flex", flexDirection: "column" }} className="productCard">
 				<CardActionArea component={Link} to={`/item/${product.id}`} sx={{ overflow: "hidden", position: "relative"}}>
           {
             product.stock === 1 && <span className="lastItemWarning">¡Último disponible!</span>
@@ -38,8 +38,8 @@ export default function Item({product}) {
             sx={{ display: loaded ? "block" : "none"}}
 					/>
 
-					<CardContent className="productCardContent" sx={{ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 2, position: "relative", zIndex: 1}}>
-						<Typography variant="h6" component="h3">
+					<CardContent className="productCardContent" sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between", paddingTop: 2, position: "relative", zIndex: 1, flexGrow: 1 }}>
+						<Typography variant="h6" component="h3" align="center" sx={{ lineHeigth: "24px" }}>
 							{product.title}
 						</Typography>
 						<Typography variant="body2" component="p">
@@ -47,7 +47,7 @@ export default function Item({product}) {
 						</Typography>
 					</CardContent>
 				</CardActionArea>
-        <CardActions>
+        <CardActions sx={{ marginTop: "auto"}}>
         <Button 
           size="small" 
           variant="contained" 
