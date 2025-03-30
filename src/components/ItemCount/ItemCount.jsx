@@ -45,6 +45,10 @@ export default function ItemCount({ stock, initial = 1, onAdd, variant, productI
         updateItemAmount(productId, newCount);
         return newCount;
       })
+    } else {
+      // si agrega más del stock, que muestre el máximo de stock disponible y actualice cart
+      setItemCount(stock);
+      updateItemAmount(productId, stock);
     }
   }
 

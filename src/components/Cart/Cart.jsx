@@ -68,6 +68,11 @@ export default function Cart() {
                         productId={product.id}
                       >
                       </ItemCount>
+                      {product.amount === product.stock && (
+                        <Typography variant="body2" color="error" sx={{ marginTop: 1, marginBottom: 1 }}>
+                          Tenemos {product.stock} productos disponibles
+                        </Typography>
+                      )}
                     </TableCell>
                     {/* <TableCell align="center">{product.amount}</TableCell> */}
                     <TableCell align="center">{formatPrice(product.price)}</TableCell>
