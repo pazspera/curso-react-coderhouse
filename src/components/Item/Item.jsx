@@ -1,11 +1,12 @@
 import "./Item.css";
-import { Button, 	Card,	CardActionArea,  CardActions,	CardContent,	CardMedia,	Typography } from "@mui/material";
+import { Button, 	Card,	CardActionArea,  CardActions,	CardContent,	CardMedia,	Typography, Skeleton } from "@mui/material";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 export default function Item({product}) {
   const { addItemToCart } = useContext(CartContext);
+  const [loaded, setLoaded] = useState(false);
 
   const handleAddItem = () => {
     addItemToCart({...product, amount: 1});
@@ -18,6 +19,9 @@ export default function Item({product}) {
           {
             product.stock === 1 && <span className="lastItemWarning">¡Último disponible!</span>
           }
+          {!loaded && (
+            <Skeleton variant="rectangular" width={303} height={303}></Skeleton>
+          )}
 					<CardMedia
 						component="img"
 						heigth="150"
@@ -30,6 +34,8 @@ export default function Item({product}) {
               `}
             sizes="(max-width: 600px) 480px, (max-width: 960px) 768px, 1280px"
             className="productCardImg"
+            onLoad={()=> setLoaded(true)}
+            sx={{ display: loaded ? "block" : "none"}}
 					/>
 
 					<CardContent className="productCardContent" sx={{ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 2, position: "relative", zIndex: 1}}>
