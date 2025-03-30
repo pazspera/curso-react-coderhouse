@@ -2,7 +2,7 @@ import { Button, TextField, Box, Input } from "@mui/material";
 import { useState, useEffect, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
-export default function ItemCount({ stock, initial = 1, onAdd, variant }) {
+export default function ItemCount({ stock, initial = 1, onAdd, variant, productId }) {
 	const [itemCount, setItemCount] = useState(Number(initial));
   const { updateItemAmount } = useContext(CartContext);
 

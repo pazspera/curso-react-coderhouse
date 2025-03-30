@@ -87,11 +87,11 @@ export const CartComponentContext = ({ children }) => {
     // impide que mande algo menos de 1
     if(newAmount < 1) return;
 
-    setCartList((prevCart) => {
-      prevCart.map((product) => {
-        return product.id === id ? { ...product, amount: newAmount } : product;
-      })
-    })
+    setCartList((prevCart) =>
+      prevCart.map((product) => 
+        product.id === id ? { ...product, amount: newAmount } : product
+      )
+    )
   }
 
   return (
