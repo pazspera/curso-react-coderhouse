@@ -27,7 +27,7 @@ export default function NavBar() {
 				>
 					<Box onClick={closeDrawer} onKeyDown={closeDrawer}>
 						<NavLink to="/">
-              <Typography variant="subtitle1" component="p" style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>
+              <Typography variant="subtitle1" component="span" style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>
                 <Logo></Logo>
               </Typography>
             </NavLink>
@@ -61,7 +61,7 @@ export default function NavBar() {
 			<>
 				<Toolbar className="navbar-container">
 					<NavLink to="/" style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>
-            <Typography variant="subtitle1" component="p">
+            <Typography variant="subtitle1" component="span">
               <Logo></Logo>
             </Typography>
           </NavLink>
