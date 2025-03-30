@@ -77,10 +77,15 @@ export default function Cart() {
                   <Typography variant="body2">
                       Subtotal: {formatPrice(product.price * product.amount)}
                   </Typography>
-                  {product.amount === product.stock && (
+                  {product.amount === product.stock && product.stock !== 1 && (
                     <Typography variant="body2" color="error" sx={{ marginTop: 1, marginBottom: 1 }}>
                       Tenemos {product.stock} productos disponibles
                     </Typography>
+                  )}
+                  {product.stock === 1 && (
+                      <Typography variant="body2" color="error" sx={{ marginTop: 1, marginBottom: 1 }}>
+                        ¡Último disponible!
+                      </Typography>
                   )}
                 </Box>
               </Paper>
