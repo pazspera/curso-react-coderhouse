@@ -53,11 +53,14 @@ export default function ItemCount({ stock, initial = 1, onAdd, variant, productI
       if(enteredValue < 1) {
         setItemCount(1);
         setInputValue("1");
+        updateItemAmount(productId, 1);
       } else if (enteredValue > stock) {
         setItemCount(stock);
         setInputValue(String(stock));
+        updateItemAmount(productId, stock);
       } else {
         setItemCount(enteredValue);
+        updateItemAmount(productId, enteredValue);
       }
     } else {
       // vuelve al valor anterior en caso de que el input esté vacío
