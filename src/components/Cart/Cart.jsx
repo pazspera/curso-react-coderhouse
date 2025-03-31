@@ -7,6 +7,7 @@ import { Box, CardMedia, Container, Grid, Table, TableContainer, TableHead, Tabl
 import CartProduct from "../CartProduct/CartProduct";
 import { formatPrice } from "../../utils/utils";
 import ItemCount from "../ItemCount/ItemCount";
+import { Link } from "react-router-dom";
 
 
 export default function Cart() {
@@ -95,7 +96,7 @@ export default function Cart() {
           <Grid item xs={12} md={cartList.length === 1 ? 6 : cartList.length % 2 === 0 ? 12 : 6 } sx={{ minHeight: "220px" }}>
             <Paper elevation={1} sx={{ padding: 2, display: "flex", flexDirection:"column", alignItems: "center", justifyContent: "center", gap: 2, minHeight: "100%"}}>
              <Typography variant="" component="h4">Total: {formatPrice(totalInCart)}</Typography> 
-             <Button size="medium" variant="contained" fullWidth>Terminar compra</Button>
+             <Button size="medium" variant="contained" fullWidth component={Link} to="/confirmation">Terminar compra</Button>
              <Button onClick={()=> clearCart()} sx={{ color: theme.palette.primary.main, "&:hover": { color: theme.palette.primary.main, backgroundColor: theme.palette.activeColor.main} }}>Vaciar carrito</Button>
             </Paper>
           </Grid>
@@ -162,7 +163,7 @@ export default function Cart() {
 
                   <TableRow sx={{ border: "none" }}>
                     <TableCell rowSpan={2} colSpan={2} sx={{ border: "none" }}>
-                      <Button size="medium" variant="contained" fullWidth>Terminar compra</Button>
+                      <Button size="medium" variant="contained" fullWidth component={Link} to="/confirmation">Terminar compra</Button>
                     </TableCell>
                     <TableCell>
                       <Button onClick={()=> clearCart()} sx={{ color: theme.palette.primary.main, "&:hover": { color: theme.palette.primary.main, backgroundColor: theme.palette.activeColor.main} }}>Vaciar carrito</Button>

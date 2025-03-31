@@ -11,6 +11,7 @@ import CartView from "./components/CartView/CartView";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import theme from "./theme/theme";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import ConfirmationFormView from "./components/ConfirmationFormView/ConfirmationFormView";
 
 function App() {
 	const greeting = "Hola Mundo";
@@ -29,6 +30,7 @@ function App() {
               <Route path="/category/:categoryId" element={<ItemListContainer />}></Route>
               <Route path="/item/:id" element={<ItemDetailContainer />}></Route>
               <Route path="/events" element={<InputSinVocales />}></Route>
+              <Route path="/confirmation" element={<ConfirmationFormView/>}></Route>
               <Route path="*" element={<h1>404 Not Found</h1>}></Route>
             </Routes>
           </BrowserRouter>
