@@ -29,7 +29,7 @@ export const useGetProducts = ()=> {
     }
 
     getProducts();
-  })
+  }, []);
 
-  return { products, loading };
+  return { products, loadingStatus };
 }
