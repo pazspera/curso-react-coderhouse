@@ -12,7 +12,7 @@ import { useGetProducts } from "../../hooks/useGetProducts";
 
 export default function ItemListContainer() {
   const { categoryId } = useParams();
-  const { products, loadingStatus } = useGetProducts();
+  const { products, loadingStatus } = useGetProducts(categoryId);
   
 	return (
 		<>
