@@ -8,11 +8,12 @@ import productsData from "../../assets/data/products.json";
 import Loader from "../Loader/Loader";
 import { getDoc, getDocs, collection, query, where, limit , doc } from "firebase/firestore";
 import { db } from "../../firebase/client";
+import { useGetProducts } from "../../hooks/useGetProducts";
 
 export default function ItemListContainer() {
   const { categoryId } = useParams();
-  const [products, setProducts] = useState([]);
-  const [loadingStatus, setLoadingStatus] = useState(true);
+  const { products, loading } = useGetProducts();
+  
 
   // firestore
   const productRef =  doc(db, "products", "BBHcDKoi1ITLlIyIGJ07");
@@ -30,14 +31,14 @@ export default function ItemListContainer() {
   }
 
   // get all products
-  const productsRef = collection(db, "products");
+ /*  const productsRef = collection(db, "products");
 
   const getProducts = async () => {
     const data = await getDocs(productsRef);
     const filteredData = data.docs.map((doc)=> ({...doc.data(), id: doc.id}));
     console.log(filteredData);
   }
-
+ */
 
   useEffect(() => {
     // getProduct();
