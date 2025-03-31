@@ -1,4 +1,4 @@
-import ConfirmationForm from "../ConfirmationForm/ConfirmationForm";
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
 import { Toolbar } from "@mui/material";
 
 export default function ConfirmationFormView() {
@@ -10,7 +10,7 @@ export default function ConfirmationFormView() {
       <p>La vista del confirmation form</p>
       <p>Tiene el form para que el usuario ingrese los datos ConfirmationForm</p>
       <p>Y CartSummary que iba a usar originariamente para mostrar info</p>
-      <ConfirmationForm></ConfirmationForm>
+      <CheckoutForm></CheckoutForm>
     </>
   )
 }
