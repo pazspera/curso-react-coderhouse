@@ -2,7 +2,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase/client";
 import { useState, useEffect } from "react";
 
-export const useGetProducts = (categoryId)=> {
+export const useGetProducts = (categoryId) => {
   const [products, setProducts] = useState([]);
   const [loadingStatus, setLoadingStatus] = useState(true);
 
@@ -20,7 +20,7 @@ export const useGetProducts = (categoryId)=> {
         if(categoryId && categoryId.length > 0) {
           categoryQuery = query(
             productsRef,
-            where("categoryId", "in", categoryId)
+            where("categories", "array-contains", categoryId)
           )
         } else {
           categoryQuery = productsRef;
