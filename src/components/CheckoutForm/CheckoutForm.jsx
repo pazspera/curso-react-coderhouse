@@ -1,12 +1,12 @@
 import { useState, useContext } from "react";
 import { TextField, Button, Grid, Typography } from "@mui/material";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../../firebase/client";
 import { CartContext } from "../../context/CartContext";
 import { useForm } from "react-hook-form";
  
 export default function ConfirmationForm() {
-  const { cartList, totalInCart } = useContext(CartContext);
+  const { cartList, totalInCart, clearCart } = useContext(CartContext);
   const { register, handleSubmit, formState: {errors} } = useForm({ mode: "onBlur" });
   
   const createOrder = (data)=> {
@@ -14,11 +14,16 @@ export default function ConfirmationForm() {
       buyer: data,
       items: cartList.map((product) => ({ id: product.id, title: product.title, quantity: product.amount, price: product.price })),
       total: totalInCart,
+      date: serverTimestamp(),
     }
     console.log(order);
 
     const orderCollection = collection(db, "orders");
-    addDoc(orderCollection, order).then(({id})=> console.log(id));
+    addDoc(orderCollection, order)
+      .then(({id})=>{
+        console.log(id);
+        clearCart();
+      });
     // guardar el id de la operación para mostrar al usuario
   }
 
