@@ -30,7 +30,7 @@ function App() {
               <Route path="/category/:categoryId" element={<ItemListContainer />}></Route>
               <Route path="/item/:id" element={<ItemDetailContainer />}></Route>
               <Route path="/events" element={<InputSinVocales />}></Route>
-              <Route path="/confirmation" element={<CheckoutView/>}></Route>
+              <Route path="/checkout" element={<CheckoutView/>}></Route>
               <Route path="*" element={<h1>404 Not Found</h1>}></Route>
             </Routes>
           </BrowserRouter>

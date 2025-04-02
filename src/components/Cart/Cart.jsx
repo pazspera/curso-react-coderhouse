@@ -168,7 +168,7 @@ export default function Cart() {
 
                   <TableRow sx={{ border: "none" }}>
                     <TableCell rowSpan={2} colSpan={2} sx={{ border: "none" }}>
-                      <Button size="medium" variant="contained" fullWidth component={Link} to="/confirmation">Terminar compra</Button>
+                      <Button size="medium" variant="contained" fullWidth component={Link} to="/checkout">Terminar compra</Button>
                     </TableCell>
                     <TableCell>
                       <Button onClick={()=> clearCart()} sx={{ color: theme.palette.primary.main, "&:hover": { color: theme.palette.primary.main, backgroundColor: theme.palette.activeColor.main} }}>Vaciar carrito</Button>
