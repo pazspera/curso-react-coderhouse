@@ -6,25 +6,8 @@ import { CartContext } from "../../context/CartContext";
 import { useForm } from "react-hook-form";
  
 export default function ConfirmationForm() {
-  const [buyer, setBuyer] = useState({ name: '', phone: '', email: ''});
   const { cartList, totalInCart } = useContext(CartContext);
   const { register, handleSubmit, formState: {errors} } = useForm({ mode: "onBlur" });
-  console.log(errors);
-  
-  const onChangeName = (name) => {
-    setBuyer({ ...buyer, name });
-    console.log({ ...buyer, name });
-  }
-  
-  const onChangePhone = (phone) => {
-    setBuyer({ ...buyer, phone });
-    console.log({ ...buyer, phone });
-  }
-  
-  const onChangeEmail = (email) => {
-    setBuyer({ ...buyer, email });
-    console.log({ ...buyer, email });
-  }
   
   const createOrder = (data)=> {
     const order = {
