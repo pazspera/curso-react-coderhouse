@@ -8,11 +8,6 @@ export default function CartSummary() {
 
   return (
     <>
-      <Grid container>
-        <Grid item>
-          <Typography variant="h2">Resumen de compra</Typography>
-        </Grid>
-      </Grid>
       <TableContainer component={Paper}>
         <TableHead>
           <TableCell>Resumen de compra</TableCell>

@@ -1,16 +1,25 @@
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
-import { Toolbar } from "@mui/material";
+import CartSummary from "../CartSummary/CartSummary";
+import { Toolbar, Grid, Container } from "@mui/material";
 
 export default function ConfirmationFormView() {
 
   return (
     <>
-      {/* Fix para el fixed navbar, empuja contenido hacia abajo */}
-      <Toolbar />
-      <p>La vista del confirmation form</p>
-      <p>Tiene el form para que el usuario ingrese los datos ConfirmationForm</p>
-      <p>Y CartSummary que iba a usar originariamente para mostrar info</p>
-      <CheckoutForm></CheckoutForm>
+      <Container maxWidth="xl">
+        {/* Fix para el fixed navbar, empuja contenido hacia abajo */}
+        <Toolbar />
+
+        <Grid container rowSpacing={2}>
+          <Grid item xs={12} lg={7}>
+            <CheckoutForm></CheckoutForm>
+          </Grid>
+          <Grid item xs={12} lg={5}>
+            <CartSummary></CartSummary>
+          </Grid>
+        </Grid>
+      </Container>
+      
     </>
   )
 }

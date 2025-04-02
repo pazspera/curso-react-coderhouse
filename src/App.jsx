@@ -2,7 +2,7 @@ import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
-import {Container} from "@mui/material";
+import { Container } from "@mui/material";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Listener from "./components/Event";
 import InputSinVocales from "./components/InputSinVocales";
