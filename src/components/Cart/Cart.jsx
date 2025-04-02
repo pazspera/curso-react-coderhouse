@@ -143,7 +143,12 @@ export default function Cart() {
                           productId={product.id}
                         >
                         </ItemCount>
-                        {product.amount === product.stock && (
+                        {product.stock === 1 && (
+                          <Typography variant="body2" color="error" sx={{ marginTop: 1, marginBottom: 1 }}>
+                            ¡Último disponible!
+                          </Typography>
+                        )}
+                        {(product.amount === product.stock) && (product.stock > 1) && (
                           <Typography variant="body2" color="error" sx={{ marginTop: 1, marginBottom: 1 }}>
                             Tenemos {product.stock} productos disponibles
                           </Typography>
