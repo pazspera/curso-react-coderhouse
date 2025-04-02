@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, Grid, Typography } from "@mui/material";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebase/client";
 import { CartContext } from "../../context/CartContext";
@@ -24,7 +24,9 @@ export default function ConfirmationForm() {
     console.log({ ...buyer, email });
   }
   
-  const createOrder = ()=> {
+  const createOrder = (e)=> {
+    e.preventDefault();
+    console.log("previne el default")
     const order = {
       buyer,
       items: cartList.map((product) => ({ id: product.id, title: product.title, quantity: product.amount, price: product.price })),
@@ -39,41 +41,42 @@ export default function ConfirmationForm() {
 
   return (
     <>
-      <p>Este es el componente confirmation form</p>
-      <p>Carrito:</p>
-      {cartList.map((product) => (
-        <div key={product.id}>
-          <p>{product.title}</p>
-          <p>Cantidad: {product.amount}</p>
-          <p>Total: {product.price * product.amount}</p>
-        </div>
-      ))}
-      <form>
-        <TextField 
-          label="Nombre" 
-          variant="filled" 
-          type="text"
-          onChange={(e)=> onChangeName(e.target.value)}
-        />
-        <TextField 
-          label="Teléfono" 
-          variant="filled" 
-          type="tel"
-          onChange={(e)=> onChangePhone(e.target.value)}
-        />
-        <TextField 
-          label="Email" 
-          variant="filled" 
-          type="email"
-          onChange={(e)=> onChangeEmail(e.target.value)}
-        />
-
-        <Button 
-          variant="contained" 
-          onClick={()=> createOrder()}
-        >
-          Finalizar compra
-        </Button>
+      <Typography variant="h4" component="h1">Completa tus datos</Typography>
+      <form onSubmit={(e) => createOrder(e)}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <TextField 
+              label="Nombre" 
+              variant="filled" 
+              type="text"
+              onChange={(e)=> onChangeName(e.target.value)}
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField 
+              label="Teléfono" 
+              variant="filled" 
+              type="tel"
+              onChange={(e)=> onChangePhone(e.target.value)}
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField 
+              label="Email" 
+              variant="filled" 
+              type="email"
+              onChange={(e)=> onChangeEmail(e.target.value)}
+              fullWidth
+            />
+          </Grid>
+        </Grid>
+        <Grid item xs={12}>
+          <Button variant="contained" type="submit" fullWidth>
+            Finalizar compra
+          </Button>
+        </Grid>
       </form>
     </>
   )
