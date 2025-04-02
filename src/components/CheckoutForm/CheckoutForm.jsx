@@ -41,10 +41,10 @@ export default function ConfirmationForm() {
 
   return (
     <>
-      <Typography variant="h4" component="h1">Completa tus datos</Typography>
+      <Typography variant="h4" component="h1" sx={{ marginBottom: 3}}>Completa tus datos</Typography>
       <form onSubmit={(e) => createOrder(e)}>
         <Grid container spacing={2}>
-          <Grid item xs={12}>
+          <Grid item xs={12} md={11}>
             <TextField 
               label="Nombre" 
               variant="filled" 
@@ -53,7 +53,7 @@ export default function ConfirmationForm() {
               fullWidth
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} md={11}>
             <TextField 
               label="Teléfono" 
               variant="filled" 
@@ -62,7 +62,7 @@ export default function ConfirmationForm() {
               fullWidth
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} md={11}>
             <TextField 
               label="Email" 
               variant="filled" 
@@ -71,11 +71,11 @@ export default function ConfirmationForm() {
               fullWidth
             />
           </Grid>
-        </Grid>
-        <Grid item xs={12}>
-          <Button variant="contained" type="submit" fullWidth>
-            Finalizar compra
-          </Button>
+          <Grid item xs={12} md={11}>
+            <Button variant="contained" type="submit"  size="large" fullWidth>
+              Finalizar compra
+            </Button>
+          </Grid>
         </Grid>
       </form>
     </>

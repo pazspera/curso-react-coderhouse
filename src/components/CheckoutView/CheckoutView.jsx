@@ -11,10 +11,10 @@ export default function ConfirmationFormView() {
         <Toolbar />
 
         <Grid container rowSpacing={2}>
-          <Grid item xs={12} lg={7}>
+          <Grid item xs={12} md={7}>
             <CheckoutForm></CheckoutForm>
           </Grid>
-          <Grid item xs={12} lg={5}>
+          <Grid item xs={12} md={5}>
             <CartSummary></CartSummary>
           </Grid>
         </Grid>
