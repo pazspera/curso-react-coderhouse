@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { TextField, Button, Grid, Typography } from "@mui/material";
+import { TextField, Button, Grid, Typography, CircularProgress } from "@mui/material";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../../firebase/client";
 import { CartContext } from "../../context/CartContext";
@@ -10,8 +10,12 @@ export default function ConfirmationForm() {
   const { cartList, totalInCart, clearCart } = useContext(CartContext);
   const { register, handleSubmit, formState: {errors} } = useForm({ mode: "onBlur" });
   const navigate = useNavigate();
+  const [loadingStatus, setLoadingStatus] = useState(false);
   
   const createOrder = (data)=> {
+    // loader para el btn
+    setLoadingStatus(true);
+
     const order = {
       buyer: data,
       items: cartList.map((product) => ({ id: product.id, title: product.title, quantity: product.amount, price: product.price })),
@@ -29,6 +33,8 @@ export default function ConfirmationForm() {
       })
       .catch((error) => {
         console.log(error);
+        // saca loader de btn
+        setLoadingStatus(false);
       });
     // guardar el id de la operación para mostrar al usuario
   }
@@ -84,8 +90,8 @@ export default function ConfirmationForm() {
             )}
           </Grid>
           <Grid item xs={12} md={11}>
-            <Button variant="contained" type="submit"  size="large" fullWidth>
-              Finalizar compra
+            <Button variant="contained" type="submit"  size="large" fullWidth disabled={loadingStatus}> 
+              {loadingStatus ? <CircularProgress size={24} color="inherit" /> : "Finalizar compra"}
             </Button>
           </Grid>
         </Grid>
