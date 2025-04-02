@@ -4,10 +4,12 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../../firebase/client";
 import { CartContext } from "../../context/CartContext";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
  
 export default function ConfirmationForm() {
   const { cartList, totalInCart, clearCart } = useContext(CartContext);
   const { register, handleSubmit, formState: {errors} } = useForm({ mode: "onBlur" });
+  const navigate = useNavigate();
   
   const createOrder = (data)=> {
     const order = {
@@ -23,13 +25,14 @@ export default function ConfirmationForm() {
       .then(({id})=>{
         console.log(id);
         clearCart();
+        navigate(`/order/${id}`);
       });
     // guardar el id de la operación para mostrar al usuario
   }
 
   return (
     <>
-      <Typography variant="h4" component="h1" sx={{ marginBottom: 3 }}>Completa tus datos</Typography>
+      <Typography variant="h3" component="h1" sx={{ marginBottom: 3 }}>Completa tus datos</Typography>
       <form onSubmit={handleSubmit(createOrder)}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={11}>

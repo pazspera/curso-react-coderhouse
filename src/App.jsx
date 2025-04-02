@@ -12,6 +12,7 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import theme from "./theme/theme";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import CheckoutView from "./components/CheckoutView/CheckoutView";
+import OrderView from "./components/OrderView/OrderView";
 
 function App() {
 	const greeting = "Hola Mundo";
@@ -31,6 +32,7 @@ function App() {
               <Route path="/item/:id" element={<ItemDetailContainer />}></Route>
               <Route path="/events" element={<InputSinVocales />}></Route>
               <Route path="/checkout" element={<CheckoutView/>}></Route>
+              <Route path="/order/:id" element={<OrderView />}></Route>
               <Route path="*" element={<h1>404 Not Found</h1>}></Route>
             </Routes>
           </BrowserRouter>
