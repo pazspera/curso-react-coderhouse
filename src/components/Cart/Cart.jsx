@@ -122,7 +122,7 @@ export default function Cart() {
               <Table>
                 <TableHead>
                   <TableRow>
-                    <TableCell >Producto</TableCell>
+                    <TableCell>Producto</TableCell>
                     <TableCell align="center">Cantidad</TableCell>
                     <TableCell align="center">Precio</TableCell>
                     <TableCell align="center">Subtotal</TableCell>
