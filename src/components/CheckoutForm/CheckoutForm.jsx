@@ -26,6 +26,9 @@ export default function ConfirmationForm() {
         console.log(id);
         clearCart();
         navigate(`/order/${id}`);
+      })
+      .catch((error) => {
+        console.log(error);
       });
     // guardar el id de la operación para mostrar al usuario
   }
