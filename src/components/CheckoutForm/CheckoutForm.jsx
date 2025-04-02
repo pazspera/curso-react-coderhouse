@@ -3,12 +3,14 @@ import { TextField, Button, Grid, Typography } from "@mui/material";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebase/client";
 import { CartContext } from "../../context/CartContext";
-
+import { useForm } from "react-hook-form";
+ 
 export default function ConfirmationForm() {
   const [buyer, setBuyer] = useState({ name: '', phone: '', email: ''});
   const { cartList, totalInCart } = useContext(CartContext);
-  console.log(cartList);
-
+  const { register, handleSubmit, formState: {errors} } = useForm({ mode: "onBlur" });
+  console.log(errors);
+  
   const onChangeName = (name) => {
     setBuyer({ ...buyer, name });
     console.log({ ...buyer, name });
@@ -24,11 +26,9 @@ export default function ConfirmationForm() {
     console.log({ ...buyer, email });
   }
   
-  const createOrder = (e)=> {
-    e.preventDefault();
-    console.log("previne el default")
+  const createOrder = (data)=> {
     const order = {
-      buyer,
+      buyer: data,
       items: cartList.map((product) => ({ id: product.id, title: product.title, quantity: product.amount, price: product.price })),
       total: totalInCart,
     }
@@ -41,8 +41,8 @@ export default function ConfirmationForm() {
 
   return (
     <>
-      <Typography variant="h4" component="h1" sx={{ marginBottom: 3}}>Completa tus datos</Typography>
-      <form onSubmit={(e) => createOrder(e)}>
+      <Typography variant="h4" component="h1" sx={{ marginBottom: 3 }}>Completa tus datos</Typography>
+      <form onSubmit={handleSubmit(createOrder)}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={11}>
             <TextField 
@@ -51,7 +51,13 @@ export default function ConfirmationForm() {
               type="text"
               onChange={(e)=> onChangeName(e.target.value)}
               fullWidth
+              {...register("name", { required: "El campo es obligatorio" })}
             />
+            {errors.name && (
+              <Typography variant="body2" color="error" sx={{ marginTop: 1, marginBottom: 1 }}>
+                {errors.name.message}
+              </Typography>
+            )}
           </Grid>
           <Grid item xs={12} md={11}>
             <TextField 
@@ -60,7 +66,13 @@ export default function ConfirmationForm() {
               type="tel"
               onChange={(e)=> onChangePhone(e.target.value)}
               fullWidth
+              {...register("phone", { required: "El campo es obligatorio", minLength: { value: 8, message: "El teléfono debe tener al menos 8 números"}  })}
             />
+            {errors.phone && (
+              <Typography variant="body2" color="error" sx={{ marginTop: 1, marginBottom: 1 }}>
+                {errors.phone.message}
+              </Typography>
+            )}
           </Grid>
           <Grid item xs={12} md={11}>
             <TextField 
@@ -69,7 +81,13 @@ export default function ConfirmationForm() {
               type="email"
               onChange={(e)=> onChangeEmail(e.target.value)}
               fullWidth
+              {...register("email", { required: "El campo es obligatorio", pattern: { value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, message: "Formato de email inválido"} })}
             />
+            {errors.email && (
+              <Typography variant="body2" color="error" sx={{ marginTop: 1, marginBottom: 1 }}>
+                {errors.email.message}
+              </Typography>
+            )}
           </Grid>
           <Grid item xs={12} md={11}>
             <Button variant="contained" type="submit"  size="large" fullWidth>
