@@ -14,7 +14,7 @@ export default function OrderView() {
       {loadingStatus || !order ? (
         <Loader loading={loadingStatus}/>
       ) : (
-        <Container maxWidth="xl">
+        <Container maxWidth="md">
           {/* Fix para el fixed navbar, empuja contenido hacia abajo */}
           <Toolbar />
 

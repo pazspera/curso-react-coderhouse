@@ -9,8 +9,8 @@ export default function OrderDetail({ order }) {
   return (
     <>
       <Paper elevation={3} sx={{ margin: 2, padding: 3 }}>
-        <Grid container rowSpacing={2} >
-          <Grid item xs={12}>
+        <Grid container rowSpacing={2}>
+          <Grid item xs={12} >
             <Typography variant="h3" gutterBottom>¡Gracias por tu compra!</Typography>
           </Grid>
           
@@ -30,14 +30,14 @@ export default function OrderDetail({ order }) {
             <Typography variant="subtitle1" sx={{ marginTop: 1, marginBottom: 1 }}>Productos: </Typography>
             {order.items.map((product)=> (
               <Typography variant="body1" key={product.id}>
-                {product.title} x {product.quantity}: {formatPrice(product.quantity * product.price)} 
+                - {product.title} x {product.quantity}: {formatPrice(product.quantity * product.price)} 
               </Typography>
             ))}
 
             <Typography variant="subtitle1" sx={{ marginTop: 1, marginBottom: 1}}>Total: {formatPrice(order.total)}</Typography>
           </Grid>
 
-          <Grid item xs={12} sx={{ display: "flex", justifyContent: "center"}}>
+          <Grid item xs={12} >
             <Button size="medium" variant="contained" component={Link} to="/">Volver a la tienda</Button>
           </Grid>
         </Grid>

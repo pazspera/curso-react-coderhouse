@@ -17,8 +17,12 @@ export default function CartSummary() {
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell>Producto</TableCell>
-              <TableCell>Subtotal</TableCell>
+              <TableCell>
+                <Typography variant="subtitle1">Producto</Typography>
+              </TableCell>
+              <TableCell>
+                <Typography variant="subtitle1">Subtotal</Typography>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -29,8 +33,12 @@ export default function CartSummary() {
             </TableRow>
             ))}
             <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-              <TableCell>Total:</TableCell>
-              <TableCell>{formatPrice(totalInCart)}</TableCell>
+              <TableCell>
+                <Typography variant="subtitle2">Total</Typography>
+              </TableCell>
+              <TableCell>
+                <Typography variant="subtitle2">{formatPrice(totalInCart)}</Typography>
+              </TableCell>
             </TableRow>
           </TableBody>
         </Table>

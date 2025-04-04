@@ -95,8 +95,8 @@ export default function Cart() {
 
           <Grid item xs={12} md={cartList.length === 1 ? 6 : cartList.length % 2 === 0 ? 12 : 6 } sx={{ minHeight: "220px" }}>
             <Paper elevation={1} sx={{ padding: 2, display: "flex", flexDirection:"column", alignItems: "center", justifyContent: "center", gap: 2, minHeight: "100%"}}>
-             <Typography variant="" component="h4">Total: {formatPrice(totalInCart)}</Typography> 
-             <Button size="medium" variant="contained" fullWidth component={Link} to="/confirmation">Terminar compra</Button>
+             <Typography variant="subtitle1">Total: {formatPrice(totalInCart)}</Typography> 
+             <Button size="medium" variant="contained" fullWidth component={Link} to="/checkout">Terminar compra</Button>
              <Button onClick={()=> clearCart()} sx={{ color: theme.palette.primary.main, "&:hover": { color: theme.palette.primary.main, backgroundColor: theme.palette.activeColor.main} }}>Vaciar carrito</Button>
             </Paper>
           </Grid>
@@ -122,10 +122,18 @@ export default function Cart() {
               <Table>
                 <TableHead>
                   <TableRow>
-                    <TableCell>Producto</TableCell>
-                    <TableCell align="center">Cantidad</TableCell>
-                    <TableCell align="center">Precio</TableCell>
-                    <TableCell align="center">Subtotal</TableCell>
+                    <TableCell align="center">
+                      <Typography variant="subtitle1">Producto</Typography>
+                    </TableCell>
+                    <TableCell align="center">
+                      <Typography variant="subtitle1">Cantidad</Typography>
+                    </TableCell>
+                    <TableCell align="center">
+                      <Typography variant="subtitle1">Precio</Typography>
+                    </TableCell>
+                    <TableCell align="center">
+                      <Typography variant="subtitle1">Subtotal</Typography>
+                    </TableCell>
                   </TableRow>
                 </TableHead>
 
@@ -162,8 +170,12 @@ export default function Cart() {
 
                   <TableRow>
                     <TableCell rowSpan={2}></TableCell>
-                    <TableCell colSpan={2} align="center">Total</TableCell>
-                    <TableCell align="center">{formatPrice(totalInCart)}</TableCell>
+                    <TableCell colSpan={2} align="center">
+                      <Typography variant="subtitle2">Total</Typography>
+                    </TableCell>
+                    <TableCell align="center">
+                      <Typography variant="subtitle2">{formatPrice(totalInCart)}</Typography>
+                    </TableCell>
                   </TableRow>
 
                   <TableRow sx={{ border: "none" }}>
