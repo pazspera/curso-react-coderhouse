@@ -11,7 +11,7 @@ export default function OrderView() {
 
   return (
     <>
-      {loadingStatus ? (
+      {loadingStatus || !order ? (
         <Loader loading={loadingStatus}/>
       ) : (
         <Container maxWidth="xl">
@@ -19,7 +19,7 @@ export default function OrderView() {
           <Toolbar />
           <p>Soy la order View</p>
 
-          <OrderDetail></OrderDetail>
+          <OrderDetail order={order}></OrderDetail>
         </Container>
       )
 

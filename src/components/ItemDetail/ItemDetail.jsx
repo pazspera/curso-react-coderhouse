@@ -10,7 +10,7 @@ import styles from "./ItemDetail.module.css"
 export default function ItemDetail({product}) {
   const navigateBack = useNavigateBack("/");
   // itemsInCart se usa para mostrar el ItemCount o btn de terminar compra 
-  const [itemsInCart, setItemsInCart] = useState(0);
+  const [ itemsInCart, setItemsInCart ] = useState(0);
 
   // agregar y desestructurar el contexto para usarlo
   const { addItemToCart } = useContext(CartContext);
