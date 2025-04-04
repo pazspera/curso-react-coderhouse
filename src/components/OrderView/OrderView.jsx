@@ -17,12 +17,10 @@ export default function OrderView() {
         <Container maxWidth="xl">
           {/* Fix para el fixed navbar, empuja contenido hacia abajo */}
           <Toolbar />
-          <p>Soy la order View</p>
 
           <OrderDetail order={order}></OrderDetail>
         </Container>
       )
-
       }
     </>
   )

@@ -5,7 +5,7 @@ import { formatPrice } from "../../utils/utils";
 
 export default function CartSummary() {
   const { totalInCart, cartList } = useContext(CartContext);
-
+  
   return (
     <>
       <TableContainer component={Paper}>
