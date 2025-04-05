@@ -3,11 +3,12 @@ import OrderDetail from "../OrderDetail/OrderDetail";
 import { useParams } from "react-router-dom";
 import { useGetOrder } from "../../hooks/useGetOrder";
 import Loader from "../Loader/Loader";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 export default function OrderView() {
   const { id } = useParams();
-  console.log(id);
   const { order, loadingStatus } = useGetOrder(id);
+  useDocumentTitle("Gracias por tu compra | Caladan Games");
 
   return (
     <>

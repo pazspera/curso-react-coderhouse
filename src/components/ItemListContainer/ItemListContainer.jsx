@@ -9,11 +9,15 @@ import Loader from "../Loader/Loader";
 import { getDoc, getDocs, collection, query, where, limit , doc } from "firebase/firestore";
 import { db } from "../../firebase/client";
 import { useGetProducts } from "../../hooks/useGetProducts";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 export default function ItemListContainer() {
   const { categoryId } = useParams();
   const { products, loadingStatus } = useGetProducts(categoryId);
-  
+  const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+
+  useDocumentTitle(categoryId ? `${capitalize(categoryId)} | Caladan Games` : "Caladan Games");
+   
 	return (
 		<>
 			<Container

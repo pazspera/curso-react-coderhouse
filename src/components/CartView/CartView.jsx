@@ -4,10 +4,12 @@ import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./CartView.module.css";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 export default function CartView() {
   // componente de presentación
   const { itemsInCart } = useContext(CartContext);
+  useDocumentTitle("Mi carrito | Caladan Games")
 
   return (
     <>

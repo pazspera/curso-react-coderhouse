@@ -13,9 +13,11 @@ import theme from "./theme/theme";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import CheckoutView from "./components/CheckoutView/CheckoutView";
 import OrderView from "./components/OrderView/OrderView";
+import useDocumentTitle from "./hooks/useDocumentTitle";
 
 function App() {
 	const greeting = "Hola Mundo";
+  useDocumentTitle("Caladan Games");
 
 	return (
 		<>

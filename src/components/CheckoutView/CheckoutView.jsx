@@ -1,8 +1,10 @@
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 import CartSummary from "../CartSummary/CartSummary";
 import { Toolbar, Grid, Container } from "@mui/material";
+import useDocumentTitle from "../../hooks/useDocumentTitle";
 
 export default function ConfirmationFormView() {
+  useDocumentTitle("Checkout | Caladan Games");
 
   return (
     <>
