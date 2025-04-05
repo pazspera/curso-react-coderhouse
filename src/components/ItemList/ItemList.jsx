@@ -1,7 +1,6 @@
 import Item from "../Item/Item";
 import { useEffect , useState} from "react";
 import { Grid } from "@mui/material";
-import productsData from "../../assets/data/products.json";
 import { Link } from "react-router-dom"
 
 export default function ItemList({products}) {

@@ -141,7 +141,11 @@ export default function Cart() {
                   {cartList.map((product) => (
                     <TableRow key={product.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                       <TableCell component="th" scope="row">
-                        <CartProduct product={product}></CartProduct>
+                        <CartProduct 
+                          id={product.id}
+                          title={product.title}
+                          pictureUrlCart={product.pictureUrlCart}
+                        />
                       </TableCell>
                       <TableCell align="center">
                         <ItemCount 
