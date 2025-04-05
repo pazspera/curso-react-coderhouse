@@ -1,0 +1,43 @@
+.navbarContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: end;
+}
+
+.navbarLinksContainer {
+  display: flex;
+  align-items: center;
+}
+
+a.navbarLink {
+	color: white;
+	margin-left: 16px;
+}
+
+a.navbarLink:hover {
+	color: darkslateblue;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.activeLink {
+  color: darkslateblue;
+  font-weight: 700;
+}
+
+.inactiveLink {
+  color: white;
+}
+
+.drawerMobile {
+ width: 280px; 
+}
+
+.drawerMobileToggle {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.drawerMobileButton {
+  align-self: start; 
+}

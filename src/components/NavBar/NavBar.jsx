@@ -1,12 +1,11 @@
-import { useState } from "react";
-import "./Navbar.css";
-import MenuIcon from "@mui/icons-material/Menu";
-import { AppBar, Box, Container,	IconButton,	List,	ListItem,	ListItemIcon,	ListItemText,	SwipeableDrawer,	Toolbar,	Typography,	useMediaQuery } from "@mui/material";
+import styles from "./NavBar.module.css";
 import CartWidget from "../CartWidget/CartWidget";
-import { Link, NavLink } from "react-router-dom";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Logo from "../Logo/Logo";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
+import { AppBar, Box, Container,	IconButton,	List,	ListItem,	ListItemText,	SwipeableDrawer,	Toolbar,	Typography,	useMediaQuery } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 
 export default function NavBar() {
 	const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
@@ -24,31 +23,41 @@ export default function NavBar() {
 					open={openMobileMenu}
 					onClose={closeDrawer}
 					onOpen={openDrawer}
+          PaperProps={{ sx: { backgroundColor: theme.palette.primary.main }, className: styles.drawerMobile}}
 				>
 					<Box onClick={closeDrawer} onKeyDown={closeDrawer}>
-						<NavLink to="/">
-              <Typography variant="subtitle1" component="span" style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>
+						<NavLink to="/" style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>
+              <Typography variant="subtitle1" component="span">
                 <Logo></Logo>
               </Typography>
             </NavLink>
-						<List>
-							<NavLink to="/category/estrategia" className="navbar-link" style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>
-                <ListItemText primary="Estrategia"></ListItemText>
-              </NavLink>
-              <NavLink to="/category/familiares" className="navbar-link" style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>
-							  <ListItemText istItemText primary="Familiares"></ListItemText>
-              </NavLink>
-							<NavLink to="/category/party" className="navbar-link" style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>
-               <ListItemText primary="Party"></ListItemText>
-              </NavLink>
+						
+            <List>
+              <ListItem>
+                <NavLink to="/category/estrategia" className={styles.navbarLink} style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>
+                  <ListItemText primary="Estrategia"></ListItemText>
+                </NavLink>
+              </ListItem>
+              <ListItem>
+                <NavLink to="/category/familiares" className={styles.navbarLink} style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>
+                  <ListItemText istItemText primary="Familiares"></ListItemText>
+                </NavLink>
+              </ListItem>
+              <ListItem>
+                <NavLink to="/category/party" className={styles.navbarLink} style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>
+                <ListItemText primary="Party"></ListItemText>
+                </NavLink>
+              </ListItem>
+              <ListItem>
+                <NavLink to="/cart" className={styles.navbarLink} style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>
+                  <ListItemText primary="Mi carrito"></ListItemText>
+                </NavLink>
+              </ListItem>
 						</List>
-            <NavLink to="/cart" style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>
-              <Typography>Mi carrito</Typography>
-            </NavLink>
 					</Box>
 				</SwipeableDrawer>
-        <Box sx={{display: 'flex', justifyContent: 'flex-start'}}>
-          <IconButton onClick={openDrawer} sx={{ alignSelf: 'start'}}>
+        <Box className={styles.drawerMobileToggle}>
+          <IconButton onClick={openDrawer} className={styles.drawerMobileButton}>
             <MenuIcon />
           </IconButton>
         </Box>
@@ -59,16 +68,16 @@ export default function NavBar() {
 	const DesktopNav = () => {
 		return (
 			<>
-				<Toolbar className="navbar-container">
+				<Toolbar className={styles.navbarContainer}>
 					<NavLink to="/" style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>
             <Typography variant="subtitle1" component="span">
               <Logo></Logo>
             </Typography>
           </NavLink>
-					<Box sx={{ display: "flex", alignItems: "center" }}>
-						<NavLink to="/category/estrategia" className="navbar-link" style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>Estrategia</NavLink>
-						<NavLink to="/category/familiares" className="navbar-link" style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>Familiares</NavLink>
-						<NavLink to="/category/party" className="navbar-link" style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>Party</NavLink>
+					<Box className={styles.navbarLinksContainer}>
+						<NavLink to="/category/estrategia" className={styles.navbarLink} style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>Estrategia</NavLink>
+						<NavLink to="/category/familiares" className={styles.navbarLink} style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>Familiares</NavLink>
+						<NavLink to="/category/party" className={styles.navbarLink} style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>Party</NavLink>
 						<NavLink to="/cart" style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>
               <CartWidget />
             </NavLink>
