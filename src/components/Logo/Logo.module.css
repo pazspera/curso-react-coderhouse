@@ -16,3 +16,12 @@
   max-width: 48px;
 }
 
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.hidden {
+  overflow: hidden;
+}

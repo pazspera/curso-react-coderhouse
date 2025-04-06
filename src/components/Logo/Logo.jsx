@@ -5,8 +5,8 @@ export default function Logo() {
 
   return (
     <>
-      <Box sx={{ display: "flex", flexDirection: "row", alignItems:"center" }}>
-        <Box sx={{ overflow: "hidden" }}>
+      <Box className={styles.mainContainer}>
+        <Box className={styles.hidden}>
           <CardMedia 
             component="img"
             width="48px"
