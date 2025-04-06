@@ -18,8 +18,6 @@ export default function ItemDetail({product}) {
   const handleAddItem = (amount) => {
     if(amount >=1) {
       setItemsInCart(amount);
-      console.log(`Items agregados: ${amount}`)
-      console.log(itemsInCart);
 
       // armar objeto para mandar al cart
       // tiene que tener el objeto de datos y la cantidad separada
@@ -33,7 +31,7 @@ export default function ItemDetail({product}) {
   
   return (
     <>
-      <Grid container rowSpacing={2} sx={{ marginTop: 4, padding: 3, }}>
+      <Grid container rowSpacing={2} className={styles.mainContainer}>
         <Grid item xs={12} md={5} lg={6}>
           <CardMedia
               component="img"
@@ -47,7 +45,7 @@ export default function ItemDetail({product}) {
               sizes="(max-width: 600px) 480px, (max-width: 960px) 768px, 1280px"
             />
         </Grid>
-        <Grid item xs={12} md={7} lg={6} sx={{display: 'flex', flexDirection: 'column', alignItems:'start', textAlign: 'start', paddingLeft: { md: 5 } }}>
+        <Grid item xs={12} md={7} lg={6} className={styles.productInfoContainer} >
           <Typography variant="h3" gutterBottom>{product.title}</Typography>
           <Typography variant="subtitle1" gutterBottom>{formatPrice(product.price)}</Typography>
 
@@ -77,7 +75,7 @@ export default function ItemDetail({product}) {
 
           <Typography variant="h6">Descripción:</Typography>
           <Typography variant="body1">{product.description}</Typography>
-          <Button variant="contained" onClick={navigateBack} sx={{marginTop: 4}}>Volver atrás</Button>
+          <Button variant="contained" onClick={navigateBack} className={styles.backButton}>Volver atrás</Button>
         </Grid>
       </Grid>
     </>

@@ -12,3 +12,25 @@
   text-transform: uppercase;
   font-weight: 700;
 }
+
+.mainContainer {
+  margin-top: 32px !important;
+  padding: 24px
+}
+
+.backButton {
+  margin-top: 32px !important;
+}
+
+.productInfoContainer {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+}
+
+@media(min-width: 900px) {
+  .productInfoContainer {
+    padding-left: 40px !important;
+  }
+}
