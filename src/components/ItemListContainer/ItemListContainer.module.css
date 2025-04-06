@@ -1,0 +1,14 @@
+.mainContainer {
+  text-align: left;
+  display: block;
+  min-height: auto;
+  width: 100%;
+  padding-bottom: 48px;
+}
+
+.itemListContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+}

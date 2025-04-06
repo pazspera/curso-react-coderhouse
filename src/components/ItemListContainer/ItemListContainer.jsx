@@ -1,15 +1,11 @@
-import { Box, Typography, Container, Grid, Toolbar } from "@mui/material";
+import { Box, Container, Toolbar } from "@mui/material";
 import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { formatPrice } from "../../utils/utils";
-import productsData from "../../assets/data/products.json";
 import Loader from "../Loader/Loader";
-import { getDoc, getDocs, collection, query, where, limit , doc } from "firebase/firestore";
-import { db } from "../../firebase/client";
 import { useGetProducts } from "../../hooks/useGetProducts";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
+import styles from "./ItemListContainer.module.css";
 
 export default function ItemListContainer() {
   const { categoryId } = useParams();
@@ -20,28 +16,14 @@ export default function ItemListContainer() {
    
 	return (
 		<>
-			<Container
-				sx={{
-					textAlign: "left",
-					display: "block",
-					minHeight: "auto",
-					width: "100%",
-          paddingBottom: "48px"
-				}}
-				maxWidth="xl"
-			>
+			<Container className={styles.mainContainer}	maxWidth="xl">
 				{/* Fix para el fixed navbar, empuja contenido hacia abajo */}
 				<Toolbar />
 
         {loadingStatus ? (
           <Loader loading={loadingStatus}/>
         ) : (
-          <Box sx={{ 
-            display: "flex", 
-            flexWrap: "wrap", 
-            justifyContent: "flex-start",
-            width: "100%" 
-        }}>
+          <Box className={styles.itemListContainer}>
           <ItemList products={products}/>
         </Box>
         )}
