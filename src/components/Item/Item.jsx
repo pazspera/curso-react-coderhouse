@@ -1,4 +1,5 @@
-import "./Item.css";
+
+import styles from "./Item.module.css";
 import { Button, 	Card,	CardActionArea,  CardActions,	CardContent,	CardMedia,	Typography, Skeleton } from "@mui/material";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
@@ -14,10 +15,10 @@ export default function Item({product}) {
 
 	return (
 		<>
-			<Card sx={{  height: '100%', position: "relative", display: "flex", flexDirection: "column" }} className="productCard">
-				<CardActionArea component={Link} to={`/item/${product.id}`} sx={{ overflow: "hidden", position: "relative"}}>
+			<Card className="productCard">
+				<CardActionArea component={Link} to={`/item/${product.id}`} className={styles.overflowCardHover}>
           {
-            product.stock === 1 && <span className="lastItemWarning">¡Último disponible!</span>
+            product.stock === 1 && <span className={styles.lastItemWarning}>¡Último disponible!</span>
           }
           {!loaded && (
             <Skeleton variant="rectangular" width={303} height={303}></Skeleton>
@@ -33,13 +34,13 @@ export default function Item({product}) {
               ${product.pictureUrl.replace(".jpg", "-large.jpg")} 1280w,
               `}
             sizes="(max-width: 600px) 480px, (max-width: 960px) 768px, 1280px"
-            className="productCardImg"
+            className={styles.productCardImg}
             onLoad={()=> setLoaded(true)}
             sx={{ display: loaded ? "block" : "none"}}
 					/>
 
-					<CardContent className="productCardContent" sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between", paddingTop: 2, position: "relative", zIndex: 1, flexGrow: 1 }}>
-						<Typography variant="h6" component="h3" align="center" sx={{ lineHeigth: "24px" }}>
+					<CardContent className={styles.productCardContent}>
+						<Typography variant="h6" component="h3" align="center" className={styles.productCardTitle}>
 							{product.title}
 						</Typography>
 						<Typography variant="body2" component="p">
@@ -47,18 +48,17 @@ export default function Item({product}) {
 						</Typography>
 					</CardContent>
 				</CardActionArea>
-        <CardActions sx={{ marginTop: "auto"}}>
-        <Button 
-          size="small" 
-          variant="contained" 
-          stock={1} 
-          onClick={handleAddItem} 
-          component={Link}
-          to="/cart"
-          fullWidth>
-          Agregar al carrito
-        </Button>
-        {/* <Button size="small" variant="contained" component={Link} to={`/item/${product.id}`}>Ver más</Button> */}
+        <CardActions className={styles.cardActions}>
+          <Button 
+            size="small" 
+            variant="contained" 
+            stock={1} 
+            onClick={handleAddItem} 
+            component={Link}
+            to="/cart"
+            fullWidth>
+            Agregar al carrito
+          </Button>
         </CardActions>
 			</Card>
 		</>
