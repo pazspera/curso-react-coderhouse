@@ -5,6 +5,7 @@ import { db } from "../../firebase/client";
 import { CartContext } from "../../context/CartContext";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import styles from "./CheckoutForm.module.css";
  
 export default function ConfirmationForm() {
   const { cartList, totalInCart, clearCart } = useContext(CartContext);
@@ -22,12 +23,10 @@ export default function ConfirmationForm() {
       total: totalInCart,
       date: serverTimestamp(),
     }
-    console.log(order);
-
+    
     const orderCollection = collection(db, "orders");
     addDoc(orderCollection, order)
       .then(({id})=>{
-        console.log(id);
         clearCart();
         navigate(`/order/${id}`);
       })
@@ -41,7 +40,7 @@ export default function ConfirmationForm() {
 
   return (
     <>
-      <Typography variant="h3" component="h1" sx={{ marginBottom: 3 }}>Completa tus datos</Typography>
+      <Typography variant="h3" component="h1" className={styles.mainTitle}>Completa tus datos</Typography>
       <form onSubmit={handleSubmit(createOrder)}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={11}>
@@ -54,7 +53,7 @@ export default function ConfirmationForm() {
               {...register("name", { required: "El campo es obligatorio" })}
             />
             {errors.name && (
-              <Typography variant="body2" color="error" sx={{ marginTop: 1, marginBottom: 1 }}>
+              <Typography variant="body2" color="error" className={styles.error}>
                 {errors.name.message}
               </Typography>
             )}
@@ -69,7 +68,7 @@ export default function ConfirmationForm() {
               {...register("phone", { required: "El campo es obligatorio", minLength: { value: 8, message: "El teléfono debe tener al menos 8 números"}  })}
             />
             {errors.phone && (
-              <Typography variant="body2" color="error" sx={{ marginTop: 1, marginBottom: 1 }}>
+              <Typography variant="body2" color="error" className={styles.error}>
                 {errors.phone.message}
               </Typography>
             )}
@@ -84,7 +83,7 @@ export default function ConfirmationForm() {
               {...register("email", { required: "El campo es obligatorio", pattern: { value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, message: "Formato de email inválido"} })}
             />
             {errors.email && (
-              <Typography variant="body2" color="error" sx={{ marginTop: 1, marginBottom: 1 }}>
+              <Typography variant="body2" color="error" className={styles.error}>
                 {errors.email.message}
               </Typography>
             )}
