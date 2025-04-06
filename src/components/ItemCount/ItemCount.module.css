@@ -1,0 +1,11 @@
+.itemCount {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.inputCompact {
+  width: 70px;
+}

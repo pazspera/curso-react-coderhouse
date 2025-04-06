@@ -1,6 +1,7 @@
-import { Button, TextField, Box, Input } from "@mui/material";
+import { Button, Box, Input } from "@mui/material";
 import { useState, useEffect, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import styles from "./ItemCount.module.css";
 
 export default function ItemCount({ stock, initial = 1, onAdd, variant, productId }) {
 	const [itemCount, setItemCount] = useState(Number(initial));
@@ -112,7 +113,7 @@ export default function ItemCount({ stock, initial = 1, onAdd, variant, productI
 		<>
       {variant === "full" && (
           <>
-            <Box sx={{ display: "flex", gap: 2, alignItems: "center", justifyContent: "center", marginBottom: 2 }}>
+            <Box className={styles.itemCount}>
           
               <Button variant="contained" onClick={removeItem}>
                 -
@@ -139,12 +140,12 @@ export default function ItemCount({ stock, initial = 1, onAdd, variant, productI
 
       {variant === "compact" && (
         <>
-          <Box sx={{ display: "flex", gap: 2, alignItems: "center", justifyContent: "center", marginBottom: 2 }}>
+          <Box className={styles.itemCount}>
             <Button variant="contained" onClick={removeItemAndUpdateCart} size="small">
               -
             </Button>
             
-            <Input value={inputValue} onChange={handleInputChange} sx={{ width: "70px"}} onBlur={handleInputOnBlur} />
+            <Input value={inputValue} onChange={handleInputChange} className={styles.inputCompact} onBlur={handleInputOnBlur} />
 
             <Button variant="contained" onClick={addItemAndUpdateCart}   disabled={itemCount === stock} size="small">
               +
