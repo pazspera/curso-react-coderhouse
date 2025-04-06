@@ -1,5 +1,5 @@
 import Cart from "../Cart/Cart";
-import { Grid, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, Box, Typography } from "@mui/material"; 
+import { Grid, Container, Button, Box } from "@mui/material"; 
 import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";

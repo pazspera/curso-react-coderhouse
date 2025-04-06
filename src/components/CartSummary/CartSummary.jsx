@@ -1,7 +1,8 @@
-import { Grid, Typography, Table, TableContainer, TableHead, TableCell, TableBody, TableRow, Paper, Button } from "@mui/material";
+import { Typography, Table, TableContainer, TableHead, TableCell, TableBody, TableRow, Paper } from "@mui/material";
 import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
 import { formatPrice } from "../../utils/utils";
+
 
 export default function CartSummary() {
   const { totalInCart, cartList } = useContext(CartContext);
