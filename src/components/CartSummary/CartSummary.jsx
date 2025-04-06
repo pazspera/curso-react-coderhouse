@@ -2,7 +2,7 @@ import { Typography, Table, TableContainer, TableHead, TableCell, TableBody, Tab
 import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
 import { formatPrice } from "../../utils/utils";
-
+import styles from "./CartSummary.module.css";
 
 export default function CartSummary() {
   const { totalInCart, cartList } = useContext(CartContext);
@@ -13,7 +13,7 @@ export default function CartSummary() {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell colSpan={2}>
+              <TableCell colSpan={2} className={styles.noBorder}>
                 <Typography variant="h6">Resumen de compra</Typography>
               </TableCell>
             </TableRow>
@@ -29,15 +29,15 @@ export default function CartSummary() {
           <TableBody>
             {cartList.map((product)=> (
               <TableRow key={product.id}>
-              <TableCell>{`${product.title} x ${product.amount}`}</TableCell>
-              <TableCell>{formatPrice(product.price * product.amount)}</TableCell>
+              <TableCell className={styles.noBorder}>{`${product.title} x ${product.amount}`}</TableCell>
+              <TableCell className={styles.noBorder}>{formatPrice(product.price * product.amount)}</TableCell>
             </TableRow>
             ))}
-            <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-              <TableCell>
+            <TableRow>
+              <TableCell className={styles.borderTop}>
                 <Typography variant="subtitle2">Total</Typography>
               </TableCell>
-              <TableCell>
+              <TableCell className={styles.borderTop}>
                 <Typography variant="subtitle2">{formatPrice(totalInCart)}</Typography>
               </TableCell>
             </TableRow>
