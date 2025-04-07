@@ -23,10 +23,9 @@
 }
 
 .cardMobileImage {
-  width: 75px !important;
-  height: 75px !important;
+  width: 80px !important;
+  height: 80px !important;
   object-fit: cover !important;
-  border-radius: 8px !important;
   flex-shrink: 0 !important;
 }
 
