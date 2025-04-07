@@ -12,3 +12,8 @@
   justify-content: flex-start;
   width: 100%;
 }
+
+.errorContainer {
+  margin: 16px;
+  padding: 24px; 
+}

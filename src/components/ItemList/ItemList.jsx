@@ -1,6 +1,6 @@
 import Item from "../Item/Item";
 import { Grid } from "@mui/material";
-
+import Loader from "../Loader/Loader";
 
 export default function ItemList({products}) {
   const isSingleItem = products.length === 1;
@@ -16,7 +16,7 @@ export default function ItemList({products}) {
               </Grid>
             ))
           ) : (
-            <p>Cargando</p>
+            <Loader></Loader>
           )
         }
       </Grid>
