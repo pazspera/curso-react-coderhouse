@@ -18,12 +18,11 @@ export const useGetOrder = (orderId) => {
         if(snapshot.exists()) {
           setOrder({ id: snapshot.id, ...snapshot.data()});
         } else {
-          console.log("La orden no existe")
           setError("El número de orden no existe. Por favor, verificá el id de tu compra y volvé a intentarlo.")
         }
 
       } catch (error) {
-        console.log(error);
+        setError(error);
       } finally {
         setLoadingStatus(false);
       }

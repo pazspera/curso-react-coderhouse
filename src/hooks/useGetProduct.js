@@ -5,6 +5,7 @@ import { getDoc, doc } from "firebase/firestore";
 export const useGetProduct = (productId) => {
   const [product, setProduct] = useState();
   const [loadingStatus, setLoadingStatus] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(()=> {
     const getProduct = async () => {
@@ -18,11 +19,11 @@ export const useGetProduct = (productId) => {
           // asignar data a setProduct
           setProduct({ id: snapshot.id, ...snapshot.data()});
         } else {
-          console.log("El producto no existe");
+          setError("El producto no existe. Por favor, volvé a intentarlo");
         }
         
       } catch (error) {
-        console.log(error);
+        setError(error);
       } finally {
         setLoadingStatus(false);
       }
@@ -32,5 +33,5 @@ export const useGetProduct = (productId) => {
     getProduct();
   }, [productId]);
 
-  return { product, loadingStatus };
+  return { product, loadingStatus, error };
 }
