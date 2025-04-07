@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "./OrderDetail.module.css";
 
 export default function OrderDetail({ order }) {
-  if(!order) {
-    return <p>Cargando orden</p>
-  }
+
   return (
     <>
       <Paper elevation={3} className={styles.mainContainer} >

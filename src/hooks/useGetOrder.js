@@ -32,5 +32,5 @@ export const useGetOrder = (orderId) => {
     getOrder();
   }, [orderId]);
 
-  return { order, setLoadingStatus, error };
+  return { order, loadingStatus, error };
 }
