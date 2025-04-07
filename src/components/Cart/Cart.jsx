@@ -1,14 +1,13 @@
 import { useTheme } from "@mui/material/styles";
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import CartSummary from "../CartSummary/CartSummary";
 import { Box, CardMedia, Container, Grid, Table, TableContainer, TableHead, TableCell, TableBody, TableRow, Paper, Toolbar, Button, Typography, useMediaQuery } from "@mui/material";
 import CartProduct from "../CartProduct/CartProduct";
 import { formatPrice } from "../../utils/utils";
 import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
-
+import styles from "./Cart.module.css";
 
 export default function Cart() {
   // componente funcional
@@ -24,8 +23,6 @@ export default function Cart() {
 
   const handleAddItem = (product, amount) => {
     if(amount >=1) {
-      console.log(`Items agregados: ${amount}`)
-
       // armar objeto para mandar al cart
       // tiene que tener el objeto de datos y la cantidad separada
       // pasarle el objeto a addItemToCart del contexto
@@ -42,33 +39,33 @@ export default function Cart() {
       {/* Fix para el fixed navbar, empuja contenido hacia abajo */}
       <Toolbar />
 
-        <Grid container spacing={1} sx={{ display: "flex", height: "100%", alignItems: "stretch"}}>
+        <Grid container spacing={1} className={styles.mainContainerMobile}>
           <Grid item xs={12}>
             <Typography variant="h3" component="h1">Mi carrito</Typography>
           </Grid>
 
           {cartList.map((product) => (
-            <Grid item xs={12} md={6} key={product.id} sx={{ display: "flex", minHeight: "220px"}}>
-              <Paper elevation={1} sx={{ padding: 2, display: "flex", flexDirection: "column", flexGrow: 1 }}>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+            <Grid item xs={12} md={6} key={product.id} className={styles.cardMobileContainer}>
+              <Paper elevation={1} className={styles.cardMobilePaper}>
+                <Box className={styles.cardMobileInnerBox}>
                   <CardMedia
                     component="img"
                     image={product.pictureUrlCart}
                     alt={product.title}
-                    sx={{ width: 90, height: 90}}
+                    className={styles.cardMobileImage}
                   />
-                  <Box sx={{ flexGrow: 1 }}>
-                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <Box className={styles.flexGrow}>
+                    <Box className={styles.flexCenter}>
                       <Box>
                         <Typography variant="subtitle1">{product.title}</Typography>
                         <Typography variant="body2">{formatPrice(product.price)}</Typography>
                       </Box>
-                      <DeleteIcon onClick={()=> deleteItem(product.id)} sx={{ cursor: "pointer"}}></DeleteIcon>
+                      <DeleteIcon onClick={()=> deleteItem(product.id)} className={styles.pointer}></DeleteIcon>
                     </Box>
                   </Box>
                 </Box>
 
-                <Box sx={{ marginTop: 2, marginBottom: 1, display: "flex", alignItems: "center", flexDirection: "column", flexGrow: 1 }}> 
+                <Box className={styles.cardMobileSubtotalContainer}> 
                   <ItemCount
                     stock={product.stock}
                     initial={product.amount}
@@ -79,12 +76,12 @@ export default function Cart() {
                       Subtotal: {formatPrice(product.price * product.amount)}
                   </Typography>
                   {product.amount === product.stock && product.stock !== 1 && (
-                    <Typography variant="body2" color="error" sx={{ marginTop: 1, marginBottom: 1 }}>
+                    <Typography variant="body2" color="error" className={styles.spacingNotifications}>
                       Tenemos {product.stock} productos disponibles
                     </Typography>
                   )}
                   {product.stock === 1 && (
-                      <Typography variant="body2" color="error" sx={{ marginTop: 1, marginBottom: 1 }}>
+                      <Typography variant="body2" color="error" className={styles.spacingNotifications}>
                         ¡Último disponible!
                       </Typography>
                   )}
@@ -93,8 +90,8 @@ export default function Cart() {
             </Grid>
           ))}
 
-          <Grid item xs={12} md={cartList.length === 1 ? 6 : cartList.length % 2 === 0 ? 12 : 6 } sx={{ minHeight: "220px" }}>
-            <Paper elevation={1} sx={{ padding: 2, display: "flex", flexDirection:"column", alignItems: "center", justifyContent: "center", gap: 2, minHeight: "100%"}}>
+          <Grid item xs={12} md={cartList.length === 1 ? 6 : cartList.length % 2 === 0 ? 12 : 6 } className={styles.minHeight}>
+            <Paper elevation={1} className={styles.mobileTotalCardContainer}>
              <Typography variant="subtitle1">Total: {formatPrice(totalInCart)}</Typography> 
              <Button size="medium" variant="contained" fullWidth component={Link} to="/checkout">Terminar compra</Button>
              <Button onClick={()=> clearCart()} sx={{ color: theme.palette.primary.main, "&:hover": { color: theme.palette.primary.main, backgroundColor: theme.palette.activeColor.main} }}>Vaciar carrito</Button>
@@ -139,7 +136,7 @@ export default function Cart() {
 
                 <TableBody>
                   {cartList.map((product) => (
-                    <TableRow key={product.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                    <TableRow key={product.id} >
                       <TableCell component="th" scope="row">
                         <CartProduct 
                           id={product.id}
@@ -156,12 +153,12 @@ export default function Cart() {
                         >
                         </ItemCount>
                         {product.stock === 1 && (
-                          <Typography variant="body2" color="error" sx={{ marginTop: 1, marginBottom: 1 }}>
+                          <Typography variant="body2" color="error"  className={styles.spacingNotificationsDesktop}>
                             ¡Último disponible!
                           </Typography>
                         )}
                         {(product.amount === product.stock) && (product.stock > 1) && (
-                          <Typography variant="body2" color="error" sx={{ marginTop: 1, marginBottom: 1 }}>
+                          <Typography variant="body2" color="error" className={styles.spacingNotificationsDesktop}>
                             Tenemos {product.stock} productos disponibles
                           </Typography>
                         )}
@@ -182,8 +179,8 @@ export default function Cart() {
                     </TableCell>
                   </TableRow>
 
-                  <TableRow sx={{ border: "none" }}>
-                    <TableCell rowSpan={2} colSpan={2} sx={{ border: "none" }}>
+                  <TableRow className={styles.noBorder}>
+                    <TableCell rowSpan={2} colSpan={2} className={styles.noBorder}>
                       <Button size="medium" variant="contained" fullWidth component={Link} to="/checkout">Terminar compra</Button>
                     </TableCell>
                     <TableCell>

@@ -1,0 +1,76 @@
+.mainContainerMobile {
+  display: flex;
+  height: 100%;
+  align-items: stretch;
+}
+
+.cardMobileContainer {
+  display: flex;
+  min-height: 220px;
+}
+
+.cardMobilePaper {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cardMobileInnerBox {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cardMobileImage {
+  width: 90px;
+  height: 90px;
+}
+
+.flexGrow {
+  flex-grow: 1;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.cardMobileSubtotalContainer {
+  margin: 16px 0 8px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.spacingNotifications {
+  margin: 16px 0;
+}
+
+.spacingNotificationsDesktop {
+  margin: 8px 0;
+}
+
+.minHeight {
+  min-height: 220px;
+}
+
+.mobileTotalCardContainer {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 100%;
+}
+
+.noBorder {
+  border: none;
+}
