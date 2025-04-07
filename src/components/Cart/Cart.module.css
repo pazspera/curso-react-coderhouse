@@ -23,10 +23,11 @@
 }
 
 .cardMobileImage {
-  width: 90px;
-  height: 90px;
+  width: 75px;
+  height: 75px;
   object-fit: cover;
   border-radius: 8px;
+  flex-shrink: 0;
 }
 
 .flexGrow {
