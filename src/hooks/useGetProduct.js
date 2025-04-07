@@ -8,7 +8,6 @@ export const useGetProduct = (productId) => {
 
   useEffect(()=> {
     const getProduct = async () => {
-      console.log("en getProduct");
       setLoadingStatus(true);
       
       try {
@@ -16,7 +15,6 @@ export const useGetProduct = (productId) => {
         const snapshot = await getDoc(productRef);
 
         if(snapshot.exists()) {
-          console.log({ id: snapshot.id, ...snapshot.data()});
           // asignar data a setProduct
           setProduct({ id: snapshot.id, ...snapshot.data()});
         } else {

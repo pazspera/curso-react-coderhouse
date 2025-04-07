@@ -8,7 +8,6 @@ export const useGetProducts = (categoryId) => {
 
   useEffect(() => {
     const getProducts = async () => {
-      console.log("en getProducts");
       setLoadingStatus(true);
   
       try {
@@ -31,12 +30,10 @@ export const useGetProducts = (categoryId) => {
           ...doc.data(), 
           id: doc.id
         }));
-        console.log("filteredData: ", filteredData);
         setProducts(filteredData);
       } catch (error) {
         console.log(error);
       } finally  {
-        console.log("cambiando loadingStatus a false");
         setLoadingStatus(false);
       }
       

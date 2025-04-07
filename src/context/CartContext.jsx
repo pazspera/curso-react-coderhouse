@@ -17,13 +17,11 @@ export const CartComponentContext = ({ children }) => {
 
     // no aceptar duplicados 
     if(!isInCart(item.id)) {
-      console.log("el producto no está en el cart");
       // GUARDAR A cartList
       // PARA AGREGAR ITEM A CART
       // desestructurar el cartList existente y agregarle lo nuevo
       setCartList([...cartList, item]);
     } else {
-      console.log("el producto ya está en el cart");
       // actualizar amount sumándole el amount que viene
       // encontrar en cartList el producto repetido
       // a ese producto, sumarle al amount que viene de ItemDetail
@@ -41,11 +39,8 @@ export const CartComponentContext = ({ children }) => {
 
   // TEMP mostrar en consola CartList cuando cambie
   useEffect(() => {
-    console.log("Cart actualizado", cartList);
     setItemsInCart(countItemsInCart(cartList));
     setTotalInCart(addTotalInCart(cartList))
-    console.log("items in cart:", countItemsInCart(cartList));
-    console.log("total in cart:", addTotalInCart(cartList));
   }, [cartList]);
 
   // borrar todos los productos del carrito

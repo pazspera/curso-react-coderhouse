@@ -15,7 +15,6 @@ export const useGetOrder = (orderId) => {
         const snapshot = await getDoc(orderRef);
 
         if(snapshot.exists()) {
-          console.log({ id: snapshot.id, ...snapshot.data()});
           setOrder({ id: snapshot.id, ...snapshot.data()});
         } else {
           console.log("La orden no existe")
