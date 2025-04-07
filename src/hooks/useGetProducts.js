@@ -35,7 +35,6 @@ export const useGetProducts = (categoryId) => {
         }));
         setProducts(filteredData);
       } catch (error) {
-        console.log(error);
         setError("Ocurrió un error al cargar nuestro catálogo. Por favor, intentá nuevamente.")
       } finally  {
         setLoadingStatus(false);
