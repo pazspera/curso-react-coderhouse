@@ -5,6 +5,7 @@ import { getDoc, doc } from "firebase/firestore";
 export const useGetOrder = (orderId) => {
   const [order, setOrder] = useState();
   const [loadingStatus, setLoadingStatus] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(()=> {
     const getOrder = async () => {
@@ -18,6 +19,7 @@ export const useGetOrder = (orderId) => {
           setOrder({ id: snapshot.id, ...snapshot.data()});
         } else {
           console.log("La orden no existe")
+          setError("El número de orden no existe. Por favor, verificá el id de tu compra y volvé a intentarlo.")
         }
 
       } catch (error) {
@@ -30,5 +32,5 @@ export const useGetOrder = (orderId) => {
     getOrder();
   }, [orderId]);
 
-  return { order, setLoadingStatus };
+  return { order, setLoadingStatus, error };
 }
