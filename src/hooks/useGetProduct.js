@@ -19,7 +19,7 @@ export const useGetProduct = (productId) => {
           // asignar data a setProduct
           setProduct({ id: snapshot.id, ...snapshot.data()});
         } else {
-          setError("El producto no existe. Por favor, volvé a intentarlo");
+          setError("No encontramos el producto que estabas buscando. Por favor, volvé a intentarlo.");
         }
         
       } catch (error) {

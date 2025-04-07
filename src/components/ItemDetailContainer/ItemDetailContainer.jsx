@@ -4,6 +4,7 @@ import Loader from "../Loader/Loader";
 import { useGetProduct } from "../../hooks/useGetProduct";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 import { Container, Toolbar, Paper, Grid, Typography } from "@mui/material";
+import ErrorCard from "../ErrorCard/ErrorCard";
 
 export default function ItemDetailContainer() {
   const { id } = useParams();
@@ -16,23 +17,7 @@ export default function ItemDetailContainer() {
 
   if(error) {
     return (
-      <Container maxWidth="md">
-        {/* Fix para el fixed navbar, empuja contenido hacia abajo */}
-        <Toolbar />
-        <Paper elevation={3} className={styles.errorContainer}> 
-          <Grid container rowSpacing={2}>
-            <Grid item xs={12}>
-              <Typography variant="h4">¡Oh, no!</Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="subtitle1">{error}</Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <Button size="medium" variant="contained" component={Link} to="/">Volver a la tienda</Button>
-            </Grid>
-          </Grid>
-        </Paper>
-      </Container>
+      <ErrorCard title="¡Oh, no!" error={error}/>
     )  
   }
 
