@@ -7,7 +7,7 @@ export default function ItemList({products}) {
   
   return (
     <>
-      <Grid container rowSpacing={2} columnSpacing={{ xs:0, sm:0, md: 3}} justifyContent={'flex-start'}>
+      <Grid container rowSpacing={2} columnSpacing={{ xs:0, sm:2, md: 3}} justifyContent={'flex-start'}>
         {
           products.length > 0 ? (
             products.map((card) => (
