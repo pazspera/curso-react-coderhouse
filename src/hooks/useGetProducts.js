@@ -6,6 +6,8 @@ export const useGetProducts = (categoryId) => {
   const [products, setProducts] = useState([]);
   const [loadingStatus, setLoadingStatus] = useState(true);
   const [error, setError] = useState(null);
+  // poner db a null sirve para testear el error
+  // const db = null;
 
   useEffect(() => {
     const getProducts = async () => {
@@ -33,6 +35,7 @@ export const useGetProducts = (categoryId) => {
         }));
         setProducts(filteredData);
       } catch (error) {
+        console.log(error);
         setError("Ocurrió un error al cargar los productos. Por favor, intentá nuevamente.")
       } finally  {
         setLoadingStatus(false);
