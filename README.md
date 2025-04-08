@@ -4,7 +4,7 @@
 
 La aplicación permite navegar el catálogo de productos, ver el detalle de cada juego, agregar productos al carrito de compras y finalizar la compra con un checkout sencillo. 
 
-![Ecommerce Caladan Games]()
+![Ecommerce Caladan Games](https://raw.githubusercontent.com/pazspera/ecommerce-react/refs/heads/main/public/img/mockup-min.jpg)
 
 [Visitar Caladan Games](https://ecommerce-react-seven-sepia.vercel.app/)
 
@@ -20,7 +20,7 @@ La aplicación permite navegar el catálogo de productos, ver el detalle de cada
 
 El diseño de la interfaz de Caladan games se inspiró en el universo de "Dune", incorporando una paleta de colores cálidos, tipografías modernas y un estilo minimalista. 
 
-![Guía de estilo]()
+![Guía de estilo](https://raw.githubusercontent.com/pazspera/ecommerce-react/refs/heads/main/public/img/guia_estilo-min.jpg)
 
 ## Instalación del proyecto
 - Clonar el repositorio: `git clone https://github.com/pazspera/ecommerce-react.git`
