@@ -14,6 +14,11 @@ a.navbarLink {
 	margin-left: 16px;
 }
 
+.navbarLinkCart {
+  display: flex;
+  align-items: center;
+}
+
 a.navbarLink:hover {
 	color: darkslateblue;
 	text-decoration: none;

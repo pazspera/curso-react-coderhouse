@@ -49,8 +49,9 @@ export default function NavBar() {
                 </NavLink>
               </ListItem>
               <ListItem>
-                <NavLink to="/cart" className={styles.navbarLink} style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>
+                <NavLink to="/cart" className={`${styles.navbarLink} ${styles.navbarLinkCart}`} style={({ isActive }) => ({ color: isActive ? theme.palette.activeColor.main : theme.palette.inactiveColor.main })}>
                   <ListItemText primary="Mi carrito"></ListItemText>
+                  <CartWidget />
                 </NavLink>
               </ListItem>
 						</List>
