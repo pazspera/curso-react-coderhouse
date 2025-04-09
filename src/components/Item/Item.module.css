@@ -50,6 +50,7 @@
 
 .cardActions {
   margin-top: auto;
+  padding: 0 16px 16px 16px !important;
 }
 
 @media(min-width: 600px) {
